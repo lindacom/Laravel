@@ -1,0 +1,2 @@
+Route::get('delete-records','StudDeleteController@index');
+Route::get('delete/{id}','StudDeleteController@destroy');
