@@ -18,6 +18,8 @@ web middleware must be used to group all routes that are involved in
 
 sessions
 
+add ->name('home'); at the end of the route function to name the route home for example
+
 Middleware
 ===========
 Middleware is accessed in the middle of a request
