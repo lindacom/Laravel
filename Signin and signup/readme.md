@@ -1,4 +1,4 @@
-Aughenticating users
+Authenticating users
 =====================
 
 config > auth.php contains the configuration for user authentication
@@ -21,3 +21,4 @@ function to see if errors has email for example then use the has-errors
 bootstrap style
 
 2. protect routes that need to be logged in to view (for authenticated users)
+3. produce error messages for the user
