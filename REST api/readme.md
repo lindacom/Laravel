@@ -35,7 +35,10 @@ App > http > resources > userResource.php
 
 App > http > resources >userResourceCollection.php. Use this file for the index route which returns all records and enter the paginate in the return statement to paginate the json results.  urls will be provided in the results relating to each page of data.
 
-User table migration
+
+database > factories > UserFactory.php this file enters fake data into the database
+
+database > migrations > create_users_table
 
 User table seeder
 
