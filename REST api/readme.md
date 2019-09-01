@@ -38,9 +38,11 @@ App > http > resources >userResourceCollection.php. Use this file for the index 
 
 database > factories > UserFactory.php this file enters fake data into the database
 
-database > migrations > create_users_table
+database > migrations > create_users_table.php
 
-database > seeds > UserTableSeeder
+database > seeds > UserTableSeeder.php
+
+database > seeds > databaseSeeder.php
 
 N.b. instead of individually listing a get route and using the function name in the api.php file to reference the section in the 
 user controller file, you can use api resource to group api resources with just the name of the controller
