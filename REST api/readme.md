@@ -47,7 +47,7 @@ N.b. You can amend the return code in the user resource file to return specific 
 
 return [
 'first_name' => $this->first_name,
-'last_name' -> $this->last_name
+'last_name' -> $this->last_name ]
 
 Doing this will then only return the first and last name information from the array.
 
