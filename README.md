@@ -31,6 +31,12 @@ It is possible to add conditionals to includes so that they only pull in certain
 @include('includes.sidebar')
 @endif
 
+Images
+==================
+To display an image stored in the public directory enter
+
+{{ asset('image.jpg') }}
+
 Forms
 =====
 
