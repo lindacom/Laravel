@@ -21,8 +21,8 @@
       </ul>
     </nav>
     <div class="card card-body mb-2" v-for="users in userss" v-bind:key="users.id">
-      <h3>{{ users.title }}</h3>
-      <p>{{ users.body }}</p>
+      <h3>{{ users.first_name}}</h3>
+      <p>{{ users.email }}</p>
       <hr>
       <button @click="editusers(users)" class="btn btn-warning mb-2">Edit</button>
       <button @click="deleteusers(users.id)" class="btn btn-danger">Delete</button>
