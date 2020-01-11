@@ -12,7 +12,7 @@
 
 <article class="feature-post">
 <figure class="feature-post-tag">
-<a> <img src="" width="100%" height="225" /></a></figure>
+<a> <img src="" width="293" height="172"  /></a></figure>
 
 <div>
 
