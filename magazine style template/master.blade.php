@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ URL::to('src/css/main.css') }}">
 </head>
 <body>
-<div class="container">
+<div class="home-container home-container-outer">
 
  <header class="row">
         @include('partials.header')
