@@ -6,5 +6,5 @@
 <div class="home-header-text">
 <a></a>
 <h1 class="home-header-title"></h1>
-<h2></h2>
+<h2 class="home-header-tagline"></h2>
 </div>
