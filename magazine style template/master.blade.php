@@ -10,16 +10,17 @@
 <body>
 <div class="home-container home-container-outer">
 
- <header class="row">
+ <header class="home-header">
         @include('partials.header')
     </header>
 
-    <header class="row">
+    <header class="home-main-nav-wrap">
         @include('partials.nav')
     </header>
 
-    <div id="wrapper">
-    <div id="main" class="row">
+    <div class="home-wrapper">
+    <div class="home-content home-home-content" >
+    
     
 
             @yield('content')
