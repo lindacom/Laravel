@@ -37,7 +37,7 @@
   <!--section heading and text -->      
   
 <div>
-<h4></h4>
+<h4 class="posts-title"></h4>
 <span></span>
 <div>
 <p>
