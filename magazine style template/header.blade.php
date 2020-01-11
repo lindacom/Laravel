@@ -5,6 +5,6 @@
 <div></div>
 <div class="home-header-text">
 <a></a>
-<h1></h1>
+<h1 class="home-header-title"></h1>
 <h2></h2>
 </div>
