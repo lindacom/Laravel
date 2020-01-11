@@ -11,7 +11,7 @@
 <div>
 
 <article class="feature-post">
-<figure>
+<figure class="feature-post-tag">
 <a> <img src="" width="100%" height="225" /></a></figure>
 
 <div>
