@@ -14,6 +14,6 @@
   <!-- copyright -->
   <div class="home-copyright-wrap">
   <div>
-  <p>copyright</p>
+  <p class="home-copyright">copyright</p>
   <a></a></div></div>
 
