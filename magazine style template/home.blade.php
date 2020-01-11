@@ -111,7 +111,7 @@
 
 <div>
 <h4 class="posts-title"></h4>
-<span></span>
+<span class="posts-title-inner"></span>
 <div></div>
 </div>
 
