@@ -12,7 +12,7 @@
   </footer>
 
   <!-- copyright -->
-  <div>
+  <div class="home-copyright-wrap">
   <div>
   <p>copyright</p>
   <a></a></div></div>
