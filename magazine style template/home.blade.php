@@ -10,13 +10,13 @@
 <div>
 <div>
 
-<article>
+<article class="feature-post">
 <figure>
 <a> <img src="" width="100%" height="225" /></a></figure>
 
 <div>
 
-<header>
+<header class="feature-post-header">
 <h3></h3>
 <a></a>
 
@@ -55,12 +55,13 @@
 <!--article one --> 
 <li>
 
-<figure>
+<figure class="thumbnail-img">
 <a><img src="" width="100%" height="225" /></a>
 </figure>
 
 <div>
-<p></p>
+<p class="thumbnail-title"></p>
+<p class="posts-description"></p>
 <a></a>
 
 <div>
@@ -75,12 +76,13 @@
 
 <li>
 
-<figure>
+<figure class="thumbnail-img">
 <a><img src="" /></a>
 </figure>
 
 <div>
-<p></p>
+<p class="thumbnail-title"></p>
+<p class="posts-description"></p>
 <a></a>
 
 <div>
