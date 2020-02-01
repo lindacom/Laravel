@@ -6,137 +6,275 @@
 
 @section('content')
 
-<!--feature article -->
-<div>
-<div>
+<div class="home-content" >
+    
+ <!--FEATURE ARTICLE -->   
 
-<article class="feature-post">
-<figure class="feature-post-tag">
-<a> <img src="" width="293" height="172"  /></a></figure>
+    <div class="feature-post">
 
-<div>
+           <div class="feature-post-inner">
 
-<header class="feature-post-header">
-<h3></h3>
-<a></a>
+    <article class="feature-post-item">
+      <figure class="feature-post-image">
+      <a> <img src="http://lindacom.infinityfreeapp.com/images/beach.jpg" width="293" height="172" class="feature-post-image-image" /></a></figure>
 
-<div>
-<span>
-<i class="fa fa-clock-o"></i></span>
+                      <div class="feature-post-content">
 
-<span>
-<i class="fa fa-comment-o">
-<a href="" class="btn btn-primary">View</a></i></span>
+                 <header class="feature-post-header">
+
+                  <h3 class="feature-post-title">A collection of API and integration examples </h3>
+                  <a></a>
+
+                               <div class="posts-meta">
+                  
+                   <span class="posts-meta-date"><i class="fa fa-clock-o"></i>January 4, 2020</span>
+                   
+                   <span class="posts-meta-comment">
+                   <i class="fa fa-comment-o"></i>
+                    </span>
+
+                                </div>
+                
+                </header>
+
+                   <div class="feature-post-content-text home-clearfix">
+                       <div class="feature-content-inner">
+                       <p>includes Google maps API with javascript, Postcoder API.</p>
+                       </div>
+                    </div>
+            </div>
+  </article>          
+
 </div>
-</header>
+                                           </div>
 
-<div><div>
 
-</div></div></div></article>
 
-  <!--section heading and text -->      
+<!-- SECTION HEADING AND TEXT -->      
   
-<div>
-<h4 class="posts-title"></h4>
-<span class="posts-title-inner"></span>
-<div>
-<p>
-</p>
+<div class="large-post">
+
+   <h4 class="large-post-title">
+   <span class="large-post-title-inner">My API projects</span></h4>  
+       
+       <div class="large-post-text">
+       <p><strong>Look at my API projects - currently working on user sign in and sign up using database integration, a dashboard for administration using different roles in Laravel, a product page displaying a list of products contained in a database, shopping cart functionality</strong></p>
+      </div>
+
 </div>
-</div>
-
-<!-- articles section -->  
 
 
-<div>
-<div>
-<div>
-<ul>
-<!--article one --> 
-<li>
 
-<figure class="thumbnail-img">
-<a><img src="" width="100%" height="225" /></a>
-</figure>
+<!-- TWO COLUMN ARTICLES -->   
+<div class="clearfix">
 
-<div>
-<p class="thumbnail-title"></p>
-<p class="posts-description"></p>
-<a></a>
+   <div class="container col-md-12" > 
 
-<div>
-<span>
-<i class="fa fa-clock-o"></i></span>
+<!-- top two column row -->
 
-<span>
-<i class="fa fa-comment-o"></i>
-<a href="" class="btn btn-primary" >View</a></span></div></div></li>
+          <div class="row post-columns-left display-flex">
 
-<!--article two --> 
+                <div class="col-md-6">
 
-<li>
+                         <ul class="small-articles clearfix">
 
-<figure class="thumbnail-img">
-<a><img src="" /></a>
-</figure>
+                                 <li class="small-articles-inner clearfix">
 
-<div>
-<p class="thumbnail-title"></p>
-<p class="posts-description"></p>
-<a></a>
+                                      <figure class="small-articles-thumb">
+                                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/members" title="">
+                                      <img src="http://lindacom.infinityfreeapp.com/images/login.jpg" width="80" height="60" class="small-articles-image" />
+                                      </a> </figure> 
 
-<div>
-<span>
-<i class="fa fa-clock-o"></i></span>
+               
+   <h4 class="clearfix">Members login page</h4> 
+  <p>Members login page using integration with Mysql database using password hashing.</p> 
 
-<span>
-<i class="fa fa-comment-o"></i>
-<a href="" class="btn btn-primary">View</a></span></div></div></li>
+                    <div class="posts-meta"> 
+   <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                   </div>
 
+       
+         
+         </li>
 </ul>
-</div>
-</div>
-</div>
+   </div>
 
-<!--end of articles section --> 
 
+
+   <div class="col-md-6">
+
+                         <ul class="small-articles clearfix">
+
+                                 <li class="small-articles-inner clearfix">
+
+                                      <figure class="small-articles-thumb">
+                                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/index" title="">
+                                      <img src="http://lindacom.infinityfreeapp.com/images/shopping-cart.jpg" width="80" height="60" class="small-articles-image" />
+                                      </a> </figure>
+
+       <div>         
+   <h4 class="clearfix">Library book page</h4> 
+   <p>A library book shopping page with shopping cart functionality integrated with a database.</p> </div>
+
+                    <div class="posts-meta"> 
+   <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                   </div>
+
+       
+         
+         </li>
+</ul>
+   </div> <!-- end of column--> 
+
+
+</div> <!-- end of row--> 
+
+   <!-- horizontal dividing line 
+<div class="vl"></div> --> 
+
+<!-- right --> 
+
+<div class="row post-columns-right display-flex"> 
+
+
+<div class="col-md-6">
+
+                         <ul class="small-articles clearfix">
+
+                                 <li class="small-articles-inner clearfix">
+
+                                      <figure class="small-articles-thumb">
+                                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/" title="">
+                                      <img src="http://lindacom.infinityfreeapp.com/images/bookshelf image.jpg" width="80" height="60" class="small-articles-image" />
+                                      </a> </figure>
+
+       <div>         
+   <h4 class="clearfix">Admin area</h4> 
+   <p>Admin area with delete, add and edit user functionality using database integration.</p> </div>
+
+                    <div class="posts-meta"> 
+   <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                   </div>
+
+       
+         
+         </li>
+</ul>
+   </div>
+
+    <div class="col-md-6">
+
+                         <ul class="small-articles clearfix">
+
+                                 <li class="small-articles-inner clearfix">
+
+                                      <figure class="small-articles-thumb">
+                                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/userlist" title="">
+                                      <img src="http://lindacom.infinityfreeapp.com/images/games.jpg" width="80" height="60" class="small-articles-image" />
+                                      </a> </figure>
+
+       <div>         
+   <h4 class="clearfix">User list</h4> 
+   <p>List of users using database integration</p> </div>
+
+                    <div class="posts-meta"> 
+   <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                   </div>
+
+      
+         
+         </li>
+</ul>
+   </div> 
+      
+      </div>  <!--end of column --> 
+
+
+   </div> <!--end of row --> 
+
+      </div> <!--end of  container --> 
+ 
+</div><!--end of two column articles --> 
+ 
+   
      
         
-</div> <!--end of content section --> 
+
+<!--SIDEBAR --> 
+
+<div class="home-sidebar">
+
+             <div class="sidebar-title-one">
+
+              <h4 class="sidebar-title-heading"><span class="sidebar-title-inner">Training, resources and how to guides</span> </h4>
+
+            <!-- <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>  --> 
+            
+
+           <div class="sidebar-title-one-inner"></div>
+
+           </div>
 
 
-<!--sidebar --> 
+<div class="sidebar-article">
+ 
+<ul class="sidebar-articles clearfix">
+        <li class="sidebar-articles-item clearfix">
+           
+           <figure class="sidebar-articles-thumbnails"><a href="http://lindacom.infinityfreeapp.com/laravel/public/" title="">
+<img src="http://lindacom.infinityfreeapp.com/images/beach.jpg" width="80" height-"60" class="sidebar-articles-images"/>My heading</a></figure>
 
-<div>
+               <div class="sidebar-articles-headings">
 
-<div>
-<h4 class="posts-title"></h4>
-<span class="posts-title-inner"></span>
-<div></div>
-</div>
+                     
+                       <p class="sidebar-articles-small-titles"></p>
+                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/users" title="">Users API json data</a>
 
-<div>
-<ul>
-<li>
-<figure><a></a></figure>
+                          <!--   <div class="sidebar-articles-meta">
+                            <span class="posts-meta-date"><i class="fa fa-clock-o"></i></span>
 
-<div>
-<p></p>
-<a></a>
+                           <span class="posts-meta-comment">
+                          <i class="fa-fa-comment-o"></i>
+                           <a></a></span> 
+                                                      </div> --> 
+                           
+                     </div>
 
-<div>
-<span>
-<i class="fa fa-clock-o"></i></span>
+        </li>
+        
+</ul>
 
-<span>
-<i class="fa-fa-comment-o"></i>
-<a></a></span> </div></div>
+</div>  <!--end of article one -->
+                     
+                     <div class="sidebar-title-heading"></div>
+                     <div class="sidebar-article"></div> <!--end of article two -->
 
-</li></ul></div>
-
-</div> <!--end of sidebar -->
+ <!--end of sidebar -->
 
 
+
+
+
+
+
+
+</div> <!--end of main home content section --> 
 
 
 
