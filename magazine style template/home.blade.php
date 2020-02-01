@@ -236,25 +236,27 @@
  
 <ul class="sidebar-articles clearfix">
         <li class="sidebar-articles-item clearfix">
+        <p class="sidebar-articles-small-titles"></p>
+        <span class="posts-meta-comment"><i class="fa fa-thumbs-up"></i></span>
+                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/users" title="">Users API json data</a>
            
-           <figure class="sidebar-articles-thumbnails"><a href="http://lindacom.infinityfreeapp.com/laravel/public/" title="">
-<img src="http://lindacom.infinityfreeapp.com/images/beach.jpg" width="80" height-"60" class="sidebar-articles-images"/>My heading</a></figure>
+         <!--  <figure class="sidebar-articles-thumbnails"><a href="http://lindacom.infinityfreeapp.com/laravel/public/" title="">
+<img src="http://lindacom.infinityfreeapp.com/images/beach.jpg" width="80" height-"60" class="sidebar-articles-images"/>My heading</a></figure>  
 
                <div class="sidebar-articles-headings">
 
                      
-                       <p class="sidebar-articles-small-titles"></p>
-                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/users" title="">Users API json data</a>
+                       
 
-                          <!--   <div class="sidebar-articles-meta">
+                            <div class="sidebar-articles-meta">
                             <span class="posts-meta-date"><i class="fa fa-clock-o"></i></span>
 
                            <span class="posts-meta-comment">
                           <i class="fa-fa-comment-o"></i>
                            <a></a></span> 
-                                                      </div> --> 
-                           
-                     </div>
+                                                      </div>
+                          
+                     </div> --> 
 
         </li>
         
