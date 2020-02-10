@@ -22,7 +22,7 @@
 
                  <header class="feature-post-header">
 
-                  <h3 class="feature-post-title">A collection of API and integration examples </h3>
+                  <h3 class="feature-post-title">This is a heading </h3>
                   <a></a>
 
                                <div class="posts-meta">
@@ -39,7 +39,7 @@
 
                    <div class="feature-post-content-text home-clearfix">
                        <div class="feature-content-inner">
-                       <p>includes Google maps API with javascript, Postcoder API.</p>
+                       <p>This is some text</p>
                        </div>
                     </div>
             </div>
@@ -55,10 +55,10 @@
 <div class="large-post">
 
    <h4 class="large-post-title">
-   <span class="large-post-title-inner">My API projects</span></h4>  
+   <span class="large-post-title-inner">This is a heading</span></h4>  
        
        <div class="large-post-text">
-       <p><strong>Look at my API projects - currently working on user sign in and sign up using database integration, a dashboard for administration using different roles in Laravel, a product page displaying a list of products contained in a database, shopping cart functionality</strong></p>
+       <p><strong>This is some bold text</strong></p>
       </div>
 
 </div>
@@ -87,7 +87,7 @@
 
                
    <h4 class="clearfix">Members login page</h4> 
-  <p>Members login page using integration with Mysql database using password hashing.</p> 
+  <p>This is some more text</p> 
 
                     <div class="posts-meta"> 
    <span class="fa fa-star checked"></span>
@@ -117,8 +117,8 @@
                                       </a> </figure>
 
        <div>         
-   <h4 class="clearfix">Library book page</h4> 
-   <p>A library book shopping page with shopping cart functionality integrated with a database.</p> </div>
+   <h4 class="clearfix">This is another heading</h4> 
+   <p>This is yet more text</p> </div>
 
                     <div class="posts-meta"> 
    <span class="fa fa-star checked"></span>
@@ -137,7 +137,7 @@
 
 </div> <!-- end of row--> 
 
-   <!-- horizontal dividing line 
+   <!-- horizontal dividing line - not used
 <div class="vl"></div> --> 
 
 <!-- right --> 
@@ -157,8 +157,8 @@
                                       </a> </figure>
 
        <div>         
-   <h4 class="clearfix">Admin area</h4> 
-   <p>Admin area with delete, add and edit user functionality using database integration.</p> </div>
+   <h4 class="clearfix">heading</h4> 
+   <p>some text</p> </div>
 
                     <div class="posts-meta"> 
    <span class="fa fa-star checked"></span>
@@ -186,8 +186,8 @@
                                       </a> </figure>
 
        <div>         
-   <h4 class="clearfix">User list</h4> 
-   <p>List of users using database integration</p> </div>
+   <h4 class="clearfix">heading</h4> 
+   <p>some text</p> </div>
 
                     <div class="posts-meta"> 
    <span class="fa fa-star checked"></span>
@@ -222,7 +222,7 @@
 
              <div class="sidebar-title-one">
 
-              <h4 class="sidebar-title-heading"><span class="sidebar-title-inner">Training, resources and how to guides</span> </h4>
+              <h4 class="sidebar-title-heading"><span class="sidebar-title-inner">heading</span> </h4>
 
             <!-- <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>  --> 
             
@@ -238,7 +238,7 @@
         <li class="sidebar-articles-item clearfix">
         <p class="sidebar-articles-small-titles"></p>
         <span class="posts-meta-comment"><i class="fa fa-thumbs-up"></i></span>
-                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/users" title="">Users API json data</a>
+                      <a href="http://lindacom.infinityfreeapp.com/laravel/public/users" title="">Link text</a>
            
          <!--  <figure class="sidebar-articles-thumbnails"><a href="http://lindacom.infinityfreeapp.com/laravel/public/" title="">
 <img src="http://lindacom.infinityfreeapp.com/images/beach.jpg" width="80" height-"60" class="sidebar-articles-images"/>My heading</a></figure>  
