@@ -22,8 +22,8 @@ Visual studio code
 Open visual studio code and open the project folder.
 Go to file > preferences > settings expand the extensions folder and select php. Click the link to edit the settings.json file.
 and add "php.validate.executablePath": "c:/php/php.exe" 
-Go to view > extensions and add the composer extension pack
-open the commandline and enter php artisan serve.  Copy the server link and run the site in the browser.
+Go to view > extensions and add the composer extension pack and the mysql extension pack.
+Open the commandline and enter php artisan serve.  Copy the server link and run the site in the browser.
 Enter CTRL + C to stop.
 
 N.b. if you get an openssl error you may need to enter the exact path in the php.ini file. Chane extension =openssl to
