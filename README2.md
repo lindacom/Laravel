@@ -28,3 +28,7 @@ Enter CTRL + C to stop.
 
 N.b. if you get an openssl error you may need to enter the exact path in the php.ini file. Chane extension =openssl to
 extension = c:/php/ext/php_openssl.dll
+
+Create a new project
+====================
+Once installed, the simple laravel new command will create a fresh Laravel installation in the directory you specify. For instance, laravel new blog would create a directory named blog containing a fresh Laravel installation with all dependencies installed.
