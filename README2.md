@@ -43,5 +43,8 @@ In a fresh Laravel installation, the root directory of your application will con
 
 Database
 --------
+You need to enter database connection details in two files:
 
-The database configuration file is config/database.php. Currently Laravel supports four database systems: MySQL, Postgres, SQLite, and SQL Server.
+The database configuration file is config/database.php. Currently Laravel supports four database systems: MySQL, Postgres, SQLite, and SQL Server. enter database connection information.(sqlsrv or mysl)
+
+In the .env file enter database connection information.(sqlsrv or mysl)
