@@ -32,3 +32,16 @@ extension = c:/php/ext/php_openssl.dll
 Create a new project
 ====================
 Once installed, the simple laravel new command will create a fresh Laravel installation in the directory you specify. For instance, laravel new blog would create a directory named blog containing a fresh Laravel installation with all dependencies installed.
+
+Configuration
+-------------
+The first thing you should do after installing Laravel is set your application key to a random string.The key can be set in the .env environment file.If the application key is not set, your user sessions and other encrypted data will not be secure!
+
+the config/app.php file contains several options such as timezone and locale
+
+In a fresh Laravel installation, the root directory of your application will contain a .env.example file. If you install Laravel via Composer, this file will automatically be renamed to .env. Otherwise, you should rename the file manually.All of the variables listed in this file will be loaded into the $_ENV PHP super-global when your application receives a request. 
+
+Database
+--------
+
+The database configuration file is config/database.php. Currently Laravel supports four database systems: MySQL, Postgres, SQLite, and SQL Server.
