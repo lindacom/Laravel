@@ -110,7 +110,7 @@ App > user.php this is the user model
 App > http > controllers > user controller.php this file contains the functions for showing users data using parameters and returning a 
 resource. Create a public function which will create a user and store the record.
 
-App > http > resources > userResource.php - specifies the data format as a json array. A resource class represents a single model that needs to be transformed into a JSON structure.
+App > http > resources > userResource.php - specifies the data format as a json array. A resource class represents a single model that needs to be transformed into a JSON structure. Once the resource is defined, it may be returned from a route or controller. In essence, resources are simple. They only need to transform a given model into an array.
 
 App > http > resources >userResourceCollection.php. In addition to generating resources that transform individual models, you may generate resources that are responsible for transforming collections of models. This allows your response to include links and other meta information that is relevant to an entire collection of a given resource.
 
