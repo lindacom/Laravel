@@ -112,7 +112,10 @@ resource. Create a public function which will create a user and store the record
 
 App > http > resources > userResource.php - specifies the data format as a json array
 
-App > http > resources >userResourceCollection.php. Use this file for the index route which returns all records and enter the paginate in the return statement to paginate the json results.  urls will be provided in the results relating to each page of data.
+App > http > resources >userResourceCollection.php. In addition to generating resources that transform individual models, you may generate resources that are responsible for transforming collections of models. This allows your response to include links and other meta information that is relevant to an entire collection of a given resource.
+
+Use this file for the index route which returns all records and enter the paginate in the return statement to paginate the json results.  urls will be provided in the results relating to each page of data.
+
 
 N.b. You can amend the return code in the user resource file to return specific fields instad of the whole array.  Comment out the line relating to array and add
 
