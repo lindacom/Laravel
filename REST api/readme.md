@@ -22,19 +22,42 @@ N.b. instead of individually listing a get route and using the function name in 
 user controller file, you can use api resource to group api resources with just the name of the controller
 e.g. Route::apiResource('/user' 'userController'); 
 
+create data
+-----------
+
 3. Manually create a users table in the database.
-4. Create a user model in app > user.php and create migration and seeder files which will populate the database table. (read more here https://laravel.com/docs/4.2/migrations)
+
 
 create the migration file. The migration will be placed in your app/database/migrations folder
 
 ```
 php artisan migrate:make create_users_table
 ```
-and seeder files 
+and seeder files to create sample data
 
 ```
 php artisan db:seed
 ```
+
+run factory app\articles\class\30 create
+
+geerate a factory
+
+php artisan make factory articlefactory where you can format data
+
+4. Create a user model in app > user.php and create migration and seeder files which will populate the database table. (read more here https://laravel.com/docs/4.2/migrations)
+
+php artisan migrate creates the tables
+php php artisan db:seed makes seed data
+
+Open the database to see the rcords have been created
+
+Create controller
+--------------
+
+php artisan make:: controller ArticleController --resource
+
+The resource is created with al the methods - index, create, show etc.
 
 5. Create a app > http > controllers > userController.php file which will run from the route.
 
@@ -92,6 +115,11 @@ use App\Http\Resources\UserResourceCollection;
 
 
 Create functions for the various endpoints (i.e. index, post, put etc.) in the user controller file. store, update and delete endpoints
+
+Create routes
+--------------
+
+php artisan make::resource article http > resources >article.php
 
 8. Versioning - N.b. versioning - if you make changes to any keys the user controller, routes and resource collection would all need to be updated. You would need to update the api and users who are using the api will see that it breaks. Therefore it is a good idea to use versioning for apis so that you can maintain old and new versions. Move these file to a folder called version, create a route prefix (e.g. /v1) so that users can easily see in the url which version they are using.  This url is written in the api.php file  
 
