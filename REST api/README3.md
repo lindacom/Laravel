@@ -26,10 +26,11 @@ API planning
 <ol>created_at</ol>
 
 <li>Think about endpoint queries</li>
-Page (automatically available for a resource collection)
+Page (automatically available in Laravel for a resource collection)
 http://localhost:8000/api/v1/user?page=2
 
-Per page (only working for resource collection when specified in the controller)
+Per page (only working for resource collection when specified in the controller return statement
+as ->paginate(2))
 http://localhost:8000/api/v1/user?per_page=2
 
 Search (not working)
