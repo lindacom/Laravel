@@ -1,17 +1,17 @@
-urls to test
+urls to test (check url errors errors and CRUD in postman)
 =============
 
-http://localhost:8000/api/products
-http://localhost:8000/api/products/2
+http://localhost:8000/api/products - cannot reference variable name mor than once
+http://localhost:8000/api/products/2 - cannot reference variable name mor than once
 http://localhost:8000/api/v1/products/2/reviews
-http://localhost:8000/api/v1/products/3/orders
+http://localhost:8000/api/v1/products/3/orders - add order info to the response to make it clearer what results are pulled
 
 http://localhost:8000/api/v1/reviews
 
 http://localhost:8000/api/v1/customer
 
 http://localhost:8000/api/v1/orders
-http://localhost:8000/api/v1/orders/2
+http://localhost:8000/api/v1/orders/2 - not filtering by order number
 http://localhost:8000/api/v1/orders/2/products
 
 Troubleshooting
