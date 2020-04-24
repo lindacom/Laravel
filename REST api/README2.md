@@ -6,8 +6,10 @@ The REST API provides an interface for applications to interact by sending and r
 Routes & Endpoints (api.php)
 -------------------
 
-GET
-POST
+GET (index and id)
+POST (create and edit)
+PUT (update)
+DELETE
 
 Requests and responses
 -----------------------
