@@ -23,7 +23,7 @@ http://localhost:8000/api/products - cannot reference variable name mor than onc
 
 http://localhost:8000/api/products/2 - cannot reference variable name mor than once
 
-http://localhost:8000/api/v1/products/2/reviews- route product.show not defined
+http://localhost:8000/api/v1/products/2/reviews
 
 http://localhost:8000/api/v1/products/3/orders - products.show not defined
 
