@@ -19,13 +19,13 @@ Nb. the plural of the class name will be used as the table name unless protected
 urls to test (check url errors errors and CRUD in postman)
 =============
 
-http://localhost:8000/api/products - cannot reference variable name mor than once
+http://localhost:8000/api/products - cannot reference variable name more than once
 
-http://localhost:8000/api/products/2 - cannot reference variable name mor than once
+http://localhost:8000/api/products/2 - cannot reference variable name more than once
 
 http://localhost:8000/api/v1/products/2/reviews
 
-http://localhost:8000/api/v1/products/3/orders - products.show not defined
+http://localhost:8000/api/v1/products/3/orders - not sure if the correct controller is being used
 
 http://localhost:8000/api/v1/reviews
 
@@ -35,7 +35,7 @@ http://localhost:8000/api/v1/orders
 
 http://localhost:8000/api/v1/orders/2 
 
-http://localhost:8000/api/v1/orders/2/products - cannot reference variable name order more than once
+http://localhost:8000/api/v1/orders/2/products - not sure if the correct controller is being used
 
 Resources
 =========
