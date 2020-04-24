@@ -26,26 +26,43 @@ Show function shows by id
 Update function updates a record (not sure if it is edit or update)
 Destroy function deletes a record
 
-Requests - urls to test (check url errors errors and CRUD in postman)
+Requests - urls to test (check url errors and CRUD actions in postman)
 ========================
-
-http://localhost:8000/api/products - cannot reference variable name more than once
-
-http://localhost:8000/api/products/2 - cannot reference variable name more than once
-
+Products 
+---------
+All products
+http://localhost:8000/api/products 
+Product by ID
+http://localhost:8000/api/products/2 
+Product reviews by product id
 http://localhost:8000/api/v1/products/2/reviews
+product by orders
+http://localhost:8000/api/v1/products/3/orders 
 
-http://localhost:8000/api/v1/products/3/orders - not sure if the correct controller is being used
-
-http://localhost:8000/api/v1/reviews
-
+Customers
+----------
+All customers
 http://localhost:8000/api/v1/customer
+Customer by ID
+http://localhost:8000/api/v1/customer/2
 
+Reviews
+--------
+All reviews
+http://localhost:8000/api/v1/reviews
+Review by ID
+http://localhost:8000/api/v1/reviews/2
+Reviews by customer ID
+http://localhost:8000/api/v1/reviews/2/customer/3
+
+Orders
+-------
+All orders
 http://localhost:8000/api/v1/orders
-
+Orders by ID
 http://localhost:8000/api/v1/orders/2 
-
-http://localhost:8000/api/v1/orders/2/products - not sure if the correct controller is being used
+Orders by product
+http://localhost:8000/api/v1/orders/products/1 
 
 Resources
 =========
