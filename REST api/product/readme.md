@@ -16,8 +16,18 @@ Nb. the plural of the class name will be used as the table name unless protected
 
 4. Create routes
 
-urls to test (check url errors errors and CRUD in postman)
-=============
+Actions
+========
+Action are defined in the controller file as methods.
+
+Index function shows the index 
+Store function creates a record (not sure if it is store or create)
+Show function shows by id
+Update function updates a record (not sure if it is edit or update)
+Destroy function deletes a record
+
+Requests - urls to test (check url errors errors and CRUD in postman)
+========================
 
 http://localhost:8000/api/products - cannot reference variable name more than once
 
