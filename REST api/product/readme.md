@@ -1,3 +1,21 @@
+This API uses the products table, the customer table, the reviews table and the orders table. 
+The routes are entred in the routes > api.php file.
+The routes direct to the app > http > controller files.
+The controler uses the app > http model and directs to the resources file.
+The resources file returs the JSON array of database data.
+
+Steps
+======
+1. Create a model - uses namespace app\model and app\model\product, uses illuminate\database\eloquent\model, enter a class name(the same as the filename) that extends model, enter protected fields array, enter a public function.
+
+Nb. the plural of the class name will be used as the table name unless protected name tabe is specified in the model.
+
+2. Create a resource file - database fields to be returned from a GET request. Uses resources and JSON resources, enter a class name (the same as the file name) that extends resource.
+
+3. Create a controller - which conains the index and CRUD functions. Uses models, resources, requests ad responses. Enter a class name.
+
+4. Create routes
+
 urls to test (check url errors errors and CRUD in postman)
 =============
 
@@ -18,6 +36,56 @@ http://localhost:8000/api/v1/orders
 http://localhost:8000/api/v1/orders/2 - not filtering by order number
 
 http://localhost:8000/api/v1/orders/2/products - cannot reference variable name order more than once
+
+Resources
+=========
+app > http > resources > product > ProductCollection - returns an array of the database columns and data (e. 'id' => $this.id). A collection contains links such as pagination and links to other resources
+
+app > http > resources > product > ProductResource - returns results in key and value format for each item in the array entered in the return array of the function in the product collection file.  This resource can be access by clicking on the individual links in the product collection api response. A link is creatd by entering
+
+```
+'link' => route ('products.show', $this->id)
+
+```
+
+app > http > resources > RviewResource - returns an array o database columns and data for reviews that match the (request) product id entered in the url
+
+Databases
+==========
+Product
+--------
+productName
+image
+price
+id
+
+Review
+-------
+customerid
+booktitle
+description
+likes
+id
+product_id
+
+Customer
+--------
+customerName
+id
+DateOfBirth
+registered
+Email
+password
+
+Orders
+------
+Customerid
+orderDate
+productid
+quantity
+price
+total
+
 
 Troubleshooting
 ================
