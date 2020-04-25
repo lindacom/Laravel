@@ -123,6 +123,27 @@ php artisan make::resource article http > resources >article.php
 
 8. Versioning - N.b. versioning - if you make changes to any keys the user controller, routes and resource collection would all need to be updated. You would need to update the api and users who are using the api will see that it breaks. Therefore it is a good idea to use versioning for apis so that you can maintain old and new versions. Move these file to a folder called version, create a route prefix (e.g. /v1) so that users can easily see in the url which version they are using.  This url is written in the api.php file  
 
+Create relationships between models
+====================================
+Create relationshps the model files.
+
+Has many
+
+```
+public function review()
+    {
+    	return $this->hasMany(Review::class); 
+    }
+```
+
+Belongs to
+
+```
+public function product()
+    {
+    	return $this->belongsTo(Product::class); 
+	}
+```
 
 Files
 ======
