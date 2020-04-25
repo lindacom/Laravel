@@ -144,7 +144,22 @@ public function product()
     	return $this->belongsTo(Product::class); 
 	}
 ```
+To check relationships open Tinker
 
+```
+php artisan tinker
+```
+In the command line you can find products by id
+
+```
+App\Model\Product::find(2)
+```
+
+You can find all reviews related to the product id
+
+```
+App\Model\Product::find(2)->reviews
+```
 Files
 ======
 Api
