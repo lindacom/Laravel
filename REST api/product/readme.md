@@ -69,6 +69,8 @@ Orders by ID
 http://localhost:8000/api/v1/orders/2 
 Orders by product
 http://localhost:8000/api/v1/orders/products/1 
+Orders by customer
+http://localhost:8000/api/v1/orders/customer/1 
 
 Resources
 =========
