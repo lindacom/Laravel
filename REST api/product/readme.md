@@ -49,6 +49,7 @@ Customer reviews
 http://localhost:8000/api/v1/customer/2/reviews
 Customer orders
 http://localhost:8000/api/v1/customer/2/orders
+
 Reviews
 --------
 All reviews
@@ -56,7 +57,9 @@ http://localhost:8000/api/v1/reviews
 Review by ID
 http://localhost:8000/api/v1/reviews/2
 Reviews by customer ID
-http://localhost:8000/api/v1/reviews/2/customer/3
+http://localhost:8000/api/v1/reviews/customer/3
+Reviews by product ID
+http://localhost:8000/api/v1/reviews/product/3
 
 Orders
 -------
