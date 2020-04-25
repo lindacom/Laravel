@@ -45,7 +45,10 @@ All customers
 http://localhost:8000/api/v1/customer
 Customer by ID
 http://localhost:8000/api/v1/customer/2
-
+Customer reviews
+http://localhost:8000/api/v1/customer/2/reviews
+Customer orders
+http://localhost:8000/api/v1/customer/2/orders
 Reviews
 --------
 All reviews
