@@ -160,6 +160,44 @@ You can find all reviews related to the product id
 ```
 App\Model\Product::find(2)->reviews
 ```
+
+Laravel token authentication
+============================
+In Larael you can authenticate in various ways - using built in token authentication, using JWT or using Laravel Passport.
+To implement token authentication
+
+1. Create authorisation - the following command creates a users table and a password reset table
+
+```
+php artisan make auth
+```
+Note that the .env file contains the following fields
+
+PUSHER_APP_ID
+PUSHER_APP_KEY
+PUSHER_APP_SECRET
+
+2. Create middleware called Authkey. The following command creates a file in app > http > middleware > AuthKey.php
+
+```
+php artisan make: middleware AuthKey
+```
+In he AuthKey file enter the following in the handle function:
+
+$token = $request -> header ('APP_KEY');
+if ($token!='abcd') {
+return response ()->json(['message'=>'App key not found'], 401);
+}
+
+3. Register middleware - in app > http > kernelphp in the api route register the middleware
+
+```
+\App\Http\Middleware\Authkey::class,
+```
+
+4. Test the authentication run php artisan serve.  In postman send a get request with key APP_KEY and value abcd and send.
+
+
 Files
 ======
 Api
