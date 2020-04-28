@@ -1,5 +1,32 @@
 Creating a REST API in Laravel for the users table
-----------------------------------------------------
+===================================================
+In the terminal in the desktop directory install Laravel
+```
+composer global require "laravel/installer=~1.1" "
+```
+Update composer
+
+```composer update
+```
+
+Create a new project
+---------------------
+Create a new project
+```
+laravel new api-project
+```
+A folder will be created on the desktop. Go to the directory of the project
+```
+cd api-project
+```
+
+Create a database 
+------------------
+
+```
+mysql -uroot -p
+CREATE DATABASE `api-project`;
+```
 The api url (e.g. /api) is set in th app > providers > routeServiceProvider file
 
 The api routes (e.g. GET) are set in the routes > api.php file
@@ -47,17 +74,29 @@ php artisan make factory articlefactory where you can format data
 
 4. Create a user model in app > user.php and create migration and seeder files which will populate the database table. (read more here https://laravel.com/docs/4.2/migrations)
 
+To create a model with migration:
+```
+php artisan make:model Student -m
+```
+A new file will be created in the App foler.You will have to edit the file to specify the database table we will like to interact with and the fields that can be written to (protected table and protected fillable)
+
+modify the .env file to input database credentials.
+
+Additionally, a migration file will be created in the database/migrations directory to generate the table. You will have to modify the migration file to create columns which will accept string values.
+```
 php artisan migrate creates the tables
 php php artisan db:seed makes seed data
+```
 
 Open the database to see the rcords have been created
 
 Create controller
 --------------
-
+```
 php artisan make:: controller ArticleController --resource
+```
 
-The resource is created with al the methods - index, create, show etc.
+You will find a new file named ApiController.php in the app\http\controllers directory. You will need to create all the methods in thi file - index, create, show etc.
 
 5. Create a app > http > controllers > userController.php file which will run from the route.
 
@@ -118,6 +157,10 @@ Create functions for the various endpoints (i.e. index, post, put etc.) in the u
 
 Create routes
 --------------
+In the routes directory and open the api.php file and create the endpoints that will reference the methods created earlier in the ApiController.
+
+N.b. All routes in api.php are prefixed with /api by default
+
 
 php artisan make::resource article http > resources >article.php
 
@@ -160,6 +203,18 @@ You can find all reviews related to the product id
 ```
 App\Model\Product::find(2)->reviews
 ```
+
+Test in browser
+--------------------
+
+Run the following command and open localhost in the browser
+```
+php artisan serve
+```
+
+Test in Postman
+---------------
+Enter the localhost url in postman and select the action (GET POST etc)
 
 Laravel token authentication
 ============================
