@@ -272,6 +272,21 @@ The Passport migrations will create the tables your application needs to store c
 ```
 php artisan migrate
 ```
+The following tables will be created:
+users_table
+
+oauth_auth_codes_table
+
+oauth_access_tokens_table
+
+oauth_refresh_tokens_table
+
+oauth_clients_table
+
+oauth_personal_access_clients_table
+
+failed_jobs_table
+
 
 Next, you should run the passport:install command. This command will create the encryption keys needed to generate secure access tokens. In addition, the command will create "personal access" and "password grant" clients which will be used to generate access tokens:
 
