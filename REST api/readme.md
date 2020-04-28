@@ -113,6 +113,10 @@ Make the API RESTFUL (which means adding GET, POST, PUT (to update) and DELETE r
 
 6. Create data using resources in the app > http > resources > userResource.php file. 
 
+```
+php artisan make:resource UserResource
+```
+
 Set up the json result as data using Laravel's resource facility. 
 
 ```
