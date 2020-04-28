@@ -258,6 +258,8 @@ return response ()->json(['message'=>'App key not found'], 401);
 
 Laravel Passport authentication
 ===============================
+
+By default, Passport issues long-lived access tokens that expire after one year. 
 Install Laravel Passport
 
 ``
@@ -278,6 +280,9 @@ After running this command, add the Laravel\Passport\HasApiTokens trait to your 
 Next, you should call the Passport::routes method within the boot method of your App > providers > AuthServiceProvider. This method will register the routes necessary to issue access tokens and revoke access tokens, clients, and personal access tokens:
 
 Finally, in your config/auth.php configuration file in the authentication guards section, you should set the driver option of the api authentication guard to passport. This will instruct your application to use Passport's TokenGuard when authenticating incoming API requests:
+
+Create App\Http\Controllers\Api\ApiController to handle register and login methods
+Create post routes for register and login in the api.php file
 
 Read more here https://laravel.com/docs/7.x/passport
 
