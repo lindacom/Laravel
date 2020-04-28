@@ -256,6 +256,30 @@ return response ()->json(['message'=>'App key not found'], 401);
 
 4. Test the authentication run php artisan serve.  In postman send a get request with key APP_KEY and value abcd and send.
 
+Laravel Passport authentication
+===============================
+Install Laravel Passport
+
+``
+composer require laravel/passport
+
+```
+
+The Passport migrations will create the tables your application needs to store clients and access tokens:
+
+```
+php artisan migrate
+```
+
+Next, you should run the passport:install command. This command will create the encryption keys needed to generate secure access tokens. In addition, the command will create "personal access" and "password grant" clients which will be used to generate access tokens:
+
+After running this command, add the Laravel\Passport\HasApiTokens trait to your App\User model. 
+
+Next, you should call the Passport::routes method within the boot method of your App > providers > AuthServiceProvider. This method will register the routes necessary to issue access tokens and revoke access tokens, clients, and personal access tokens:
+
+Finally, in your config/auth.php configuration file in the authentication guards section, you should set the driver option of the api authentication guard to passport. This will instruct your application to use Passport's TokenGuard when authenticating incoming API requests:
+
+Read more here https://laravel.com/docs/7.x/passport
 
 Files
 ======
