@@ -58,8 +58,10 @@ In the webpack.mix.js file you can add to the javascript.  This file points to t
 Setting up the database
 ========================
 
-Configure the config > database.php file
-Configure the .env file
+<ul>
+  <li>Configure the config > database.php file</li>
+  <li>Configure the .env file</li>
+  </ul>
 
 database > migrations - two php files are already set up in the folder during setup (create users table and create password resets table). You can create more files in this folder which will hold the schema for the database table.
 
