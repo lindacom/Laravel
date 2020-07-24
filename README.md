@@ -2,11 +2,13 @@
 
 When using Laravel on a hosted site all files and folders are stored in the Laravel folder in the main site structure (htdocs).
 
-config > app.php - this file contains configuration such as url
-package.json - this file lists dependencies
-resources > assets > sass > _variables.scss - contains variables
-app > http > kernel.php - this file lists the middleware
-app > http > middleware - this folder contains the files that are linked to in the kernel file. You add the middleware (e.g. auth - only authenticated users can access) to the route in the routes file
+<ul>
+<li>config > app.php - this file contains configuration such as url</li>
+<li>package.json - this file lists dependencies</li>
+<li>resources > assets > sass > _variables.scss - contains variables</li>
+<li>app > http > kernel.php - this file lists the middleware</li>
+<li>app > http > middleware - this folder contains the files that are linked to in the kernel file. You add the middleware (e.g. auth - only authenticated users can access) to the route in the routes file</li>
+  </ul>
 
 
 The controller access the model which then uses the database. models have connections to databases.
