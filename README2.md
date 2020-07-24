@@ -1,4 +1,4 @@
-Download Laravel project from live to local environment
+How to download Laravel project from live to local environment
 ========================================================
 
 On the live server download the whole laravel folder.
