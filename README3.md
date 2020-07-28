@@ -5,17 +5,25 @@ Linking to a view
 <a href="{{ url("/posts") }}">
 
 ```
+Include a file contents in a page
+=======================
+Create a file _sidebar-links.blade.php
 
+@include('_sidebar-links')
 Flexbox
 =========
 
 To display three columns of equal spacing on a page
 
 ```
-<div class="flex">
+<div class="container">
+               
+          <div class="d-flex justify-content-between">
           <div class="flex-1">1</div>
-          <div class="flex-1">1</div>
-          <div class="flex-1">1</div>
+          <div class="flex-1">2</div>
+          <div class="flex-1">3</div>
+          </div>
+
           </div>
           
  ```
