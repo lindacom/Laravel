@@ -6,6 +6,20 @@ Linking to a view
 
 ```
 
+Flexbox
+=========
+
+To display three columns of equal spacing on a page
+
+```
+<div class="flex">
+          <div class="flex-1">1</div>
+          <div class="flex-1">1</div>
+          <div class="flex-1">1</div>
+          </div>
+          
+ ```
+
 Authentication
 ===============
 
