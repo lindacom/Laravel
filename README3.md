@@ -1,3 +1,11 @@
+Linking to a view
+=================
+
+```
+<a href="{{ url("/posts") }}">
+
+```
+
 Authentication
 ===============
 
