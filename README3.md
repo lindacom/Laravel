@@ -9,9 +9,13 @@ Include a file contents in a page
 =======================
 Create a file _sidebar-links.blade.php
 
+```
 @include('_sidebar-links')
-Flexbox
-=========
+
+```
+
+Flexbox layout
+================
 
 To display three columns of equal spacing on a page
 
@@ -27,7 +31,7 @@ To display three columns of equal spacing on a page
           </div>
           
  ```
-
+ 
 Authentication
 ===============
 
