@@ -1,3 +1,29 @@
+Retrieving records from the database
+====================================
+By default the following function would use the id of the record in the database to retrieve details eg. example.com/profiles/1
+
+```
+ public function show(User $user)
+    {
+   
+          return $user;
+
+    } 
+    
+```
+
+You can override this in the model file as follows:
+
+```
+public function getRouteKeyName() {
+         return 'name';
+     }
+```
+
+You can now retrieve the details e.g using the name column of the table e.g. example.com/profiles/mary
+
+
+
 Linking to a view
 =================
 
