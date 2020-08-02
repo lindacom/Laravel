@@ -5,11 +5,11 @@ Create a table
 
 Posts
 
-id int, auto_increment,
-slug varchar,
-body varchar,
-created_at date,
-updated_at date
+id int, auto_increment,<br>
+slug varchar,<br>
+body varchar,<br>
+created_at date,<br>
+updated_at date<br>
 
 Display the body of the post depending on endpoint
 ===================================================
