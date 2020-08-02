@@ -58,7 +58,7 @@ To display three columns of equal spacing on a page
           
  ```
  
-Previous and next buttons
+Previous and next record buttons
 ===========================
 In the controller file show method add:
 
