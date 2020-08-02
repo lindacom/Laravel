@@ -1,5 +1,3 @@
-// CREATE A POST FORM IN BOOTSTRAP CARD DESIGN CENTRED IN THE PAGE
-
 @extends ('layout')
           
               @section('content')
@@ -13,7 +11,7 @@
                 <div class="card-body">
                   
 
- <form method "post" action="{{ url("/posts") }}"> 
+ <form method="POST" action="{{ url('/posts') }}"> 
                   @csrf
                   
                   <div class="field">
@@ -28,23 +26,20 @@
   </div>  </div> -->
 
   <div class="form-group row">  
-  <label class="col-md-4 col-form-label text-md-right" for="excerpt">Excerpt</label><br>
+  <label class="col-md-4 col-form-label text-md-right" for="slug">Slug</label><br>
   <div class="col-md-6">
-  <textarea class="textarea form-control" name="excerpt" id="excerpt"></textarea>
+  <textarea class="form-control" name="slug" id="slug"></textarea>
   </div>  </div>
 
     <div class="form-group row">
-  
-  <label class="col-md-4 col-form-label text-md-right" for="body">Body</label><br>
-
+    <label class="col-md-4 col-form-label text-md-right" for="body">Body</label><br>
   <div class="col-md-6">
-    <textarea class="textarea form-control" name="body" id="body"></textarea>
-
+    <textarea class="form-control" name="body" id="body"></textarea>
   </div>  </div>
 
   <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-  <button class="btn btn-primary" type="Submit">Submit</button>
+  <button class="btn btn-primary" type="Submit">Create a post</button>
   </div>  </div>
   
 </form> 
