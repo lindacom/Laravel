@@ -58,6 +58,42 @@ To display three columns of equal spacing on a page
           
  ```
  
+Previous and next buttons
+===========================
+In the controller file show method add:
+
+```
+ public function show($id)
+    {
+        $post = Post::findOrFail($id);
+
+if(! $post) {
+    abort(404);
+}
+
+    // get previous post id
+    $previous = Post::where('id', '<', $post->id)->max('id');
+
+    // get next post id
+    $next = Post::where('id', '>', $post->id)->min('id');
+
+    return view('posts.show', [
+        'post' => $post
+    ])->with('previous', $previous)->with('next', $next);
+        /*  return view('posts.show', [
+              'post' => $post
+          ]);*/
+    }
+ ```
+On the view page add previous and next links
+
+```
+<a href="{{ URL::to( 'posts/' . $previous ) }}">Previous</a>
+<a href="{{ URL::to( 'posts/' . $next ) }}">Next</a>
+```
+ 
+ 
+ 
 Authentication
 ===============
 
