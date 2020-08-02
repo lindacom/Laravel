@@ -1,10 +1,23 @@
-Diplay the body of the post depending on endpoint
+Create a table
+===============
+
+1. Create a posts table in the database
+
+Posts
+
+id int, auto_increment,
+slug varchar,
+body varchar,
+created_at date,
+updated_at date
+
+Display the body of the post depending on endpoint
 ===================================================
 
 url endpoint:
 http://example.com/laravel/public/two
 
-1. Create a posts table in the database
+
 2. Create a route in the routes > web.php file that will call the controller show method
 3. Create a post model
 4. Create a controller that will query the database
