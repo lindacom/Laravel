@@ -27,6 +27,20 @@ Display errors for mandatory fields
   
   ```
   
+  Using named routes
+  -------------------
+  
+  In the web.php file create a named route e.g
+  
+  ```
+  Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
+  ```
+  
+  In the form action field you can now reference the named route plus the wildcard 
+  
+  ```
+  <action="{{ route('articles.show', $article }}">
+  
   Form validation
   ----------------
 You can enter validation e.g required in the form field.  You can also enter validation in the controller.  In the form field you can mar errors to display red text and mark form fields to display as red when the form is sumitted with errors.
