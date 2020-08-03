@@ -1,0 +1,25 @@
+1. create a tags table with id and name column
+2. create a tag model
+3. In the controller file return all tags to the view (e.g. create.blade.php)
+
+```
+public function create()
+    {
+        // N.b. when a post is created on this page the store method saves the post
+           return view('posts.create', [
+           'tags' => Tag::all()
+           ]);
+    }
+```
+
+4. In the view file loop through the tags and display them in the select dropdown 
+
+```
+<label class="label" for"tag">Tags</label>
+  <div class="control">
+  <select name="tags[]">
+  @foreach ($tags as $tag)
+  <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+  @endforeach
+  </select>
+  ```
