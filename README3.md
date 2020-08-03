@@ -24,7 +24,7 @@ public function getRouteKeyName() {
          return 'name';
      }
 ```
-
+you can then have a url like example.com/users/mary instead of example.com/users/1
 
 
 Retrieving records from the database
