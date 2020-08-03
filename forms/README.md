@@ -27,6 +27,23 @@ Display errors for mandatory fields
   
   ```
   
+  Form validation
+  ----------------
+You can enter validation e.g required in the form field.  You can also enter validation in the controller.  In the form field you can mar errors to display red text and mark form fields to display as red when the form is sumitted with errors.
+  
+Inserting a value of old will ensure that when the form is submitted with errors, the entered text is returned to the field.
+
+  ```
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label text-md-right" for="body">Body</label><br>
+  <div class="col-md-6">
+    <textarea class="form-control {{ $errors->has('body') ? 'is-danger' : ''}} " name="body" id="body" value="{{ old('body') }}" required></textarea>
+    @if ($errors->has('body'))
+    <p class="help is-danger"> {{ $errors->first('body') }} </p>
+    @endif
+  </div>  </div>
+  ```
+  
   Controller
   ---------
   
