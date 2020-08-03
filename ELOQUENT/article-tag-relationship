@@ -5,6 +5,12 @@ Database tables
 3. Create a linking table called post_tag (post_id, tag_id, created_at, updated_at). This table associates one article with one tag.
 The foreign key post_id references the id on the post table. The tag id references the id on the tags table.
 
+ALTER TABLE post_tag
+ADD FOREIGN KEY (post_id) REFERENCES posts(id);
+
+ALTER TABLE post_tag
+ADD FOREIGN KEY (tag_id) REFERENCES tags(id);
+
 Models
 ----------
 1. Create a tag model
