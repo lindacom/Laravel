@@ -1,3 +1,32 @@
+Route model binding
+====================
+
+By default laravel looks for the primary key when returning results e.g. example.com/articles/1 returns article with an id of one.
+
+In the controller file you can find the article in the model 
+
+```
+$post = Post::findOrFail($id);
+```
+
+or alternatively you could pass the parameter which will return the same results as above.
+
+```
+ public function show(Article $article)
+    {
+    
+```
+
+There may be times where you don't want to return the primary key but use some other column in the database (e.g. name). You can do this by entering something like this in the model file:
+
+```
+public function getRouteKeyName() {
+         return 'name';
+     }
+```
+
+
+
 Retrieving records from the database
 ====================================
 By default the following function would use the id of the record in the database to retrieve details eg. example.com/profiles/1
