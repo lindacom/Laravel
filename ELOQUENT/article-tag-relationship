@@ -1,0 +1,71 @@
+Database tables
+---------------
+1. Create a tags table (id, name, created_at, updated_at)
+2. Create a post table
+3. Create a linking table called post_tag (post_id, tag_id, created_at, updated_at). This table associates one article with one tag.
+The foreign key post_id references the id on the post table. The tag id references the id on the tags table.
+
+Models
+----------
+1. Create a tag model
+
+```
+<?php
+
+namespace App;
+
+use App\Post;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tag extends Model
+{
+    protected $table = 'tags';
+    protected $fillable = ['id','name'];
+
+     // a post has many tags
+     public function tags() {
+        return $this->hasMany(Tag::class);
+             } 
+}
+
+```
+
+Controller
+----------
+
+Fetch articles by tag if there is a request in the url
+
+```
+ public function index()
+    {
+        if(request('tags'))  {
+            $posts = Tag::where('name', request('tag'))->firstOrFail()->posts;
+        } else {
+        $posts = Post::latest()->get();
+// dd($post); dump and die prints to screen for testing purposes
+
+if(! $posts) {
+    abort(404);
+}
+          return view('posts.index', 
+        [              'posts' => $posts          ]);
+}
+    } 
+    
+```
+
+View
+-----
+
+In the view file (index.blade.php) create an href link with a query parameter for tag name
+
+```
+ @foreach($post->tags as $tag)
+      <span class="badge badge-pill badge-secondary">
+      <a href="/posts?tag={{$tag->name}}">{{ $tag->name }}</a>
+           </span> 
+      @endforeach
+      
+      ```
+
