@@ -57,3 +57,25 @@ D. User pastes the reset link in the rowser which takes them back to the website
 set up a new password
 E. The user receives confirmation tha the password is reset and the user table is updated with the new password details.
 
+Authorisation
+==============
+
+Authorised user
+----------------
+Model has a policy
+Policy class contains a method that refers to a model
+
+Authorisation filters
+----------------------
+
+App > provider > authserviceprovider
+
+Middleware based authorisation
+-----------------------------------
+
+In th routes file apply middleware with identifier, ability name and wildcard as follows:
+
+->middleware('can::view, conversation')
+
+N.b. you can alternatively add the middleware to the controller file.
+
