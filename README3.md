@@ -1,18 +1,18 @@
 Route model binding
 ====================
 
-By default laravel looks for the primary key when returning results e.g. example.com/articles/1 returns article with an id of one.
+By default laravel looks for the primary key when returning results e.g. example.com/profiles/1 returns user with an id of one.
 
-In the controller file you can find the article in the model 
+In the controller file you can find the user in the model 
 
 ```
-$post = Post::findOrFail($id);
+$user = Post::findOrFail($id);
 ```
 
 or alternatively you could pass the parameter which will return the same results as above.
 
 ```
- public function show(Article $article)
+ public function show(User $user)
     {
     
 ```
@@ -24,6 +24,20 @@ public function getRouteKeyName() {
          return 'name';
      }
 ```
+
+In the controller file edit the store method
+
+```
+  public function show(User $user)
+    {
+ // $user = User::findOrFail($user);
+   
+//  return view('profile', $user);
+return view('profile', compact('user'));
+      }
+    
+    
+    ```
 you can then have a url like example.com/users/mary instead of example.com/users/1
 
 
