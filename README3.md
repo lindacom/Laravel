@@ -1,3 +1,20 @@
+For else statement
+===================
+
+Used to display content if condition is true or display alternative content if results are empty. E.g
+
+```
+<ul style="list-style: none;">
+
+@forelse(auth()->user()->follows as $user)
+<li> <a href="{{ $user->path() }}"><img src="{{ asset('avatar.png') }}"  style=" padding-right:5px;margin-bottom:10px;" width="50px" alt="" class="rounded-circle">{{ $user->name }} </a></li>
+ @empty
+ <li>No friends yet </li>
+  @endforelse
+
+</ul> 
+```
+
 Route model binding
 ====================
 
@@ -37,7 +54,7 @@ return view('profile', compact('user'));
       }
     
     
-    ```
+```
 you can then have a url like example.com/users/mary instead of example.com/users/1
 
 
@@ -160,4 +177,4 @@ Show homepage for logged in user
                 </div>
             @endif
             
-            ```
+```
