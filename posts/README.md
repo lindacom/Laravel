@@ -22,3 +22,13 @@ http://example.com/laravel/public/two
 3. Create a post model
 4. Create a controller that will query the database
 5. Create a view that will display the posts
+
+List of all tags
+================
+
+```
+@foreach (App\Tag::all() as $tag)
+   <li><a href="/posts/{{ $tag->name }}">{{$tag->name}}</a></li>
+   @endforeach
+   
+   ```
