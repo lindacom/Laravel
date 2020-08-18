@@ -27,6 +27,17 @@ Display errors for mandatory fields
   
   ```
   
+  Select field with option values from the database
+  
+  ```
+  <div class="form-group">  
+  <label for="channel">Choose a channel</label>
+  <select name="channel_id" id="channel_id" class="form-control">
+@foreach (App\Channel::all() as $channel)
+<option value="{{ $channel->id }}">{{ $channel->name}}</option>
+  @endforeach
+  </select></div>
+  ```
   Using named routes
   -------------------
   
