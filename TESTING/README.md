@@ -67,3 +67,17 @@ Regression testing reproduces a bug
 
 1. prove it fails
 2. write code to make it pass
+
+N.b. if every test in the test file requires the same thing (e.g. given I have a post) then consider putting it in a set up function and assign it to the instance. e.g.
+
+```
+public function setUp () {
+Parent::setUp();
+$this->post = factory(\App\Post:class)->create()
+}
+```
+
+You can then remove it from each test function
+
+N.b. if most of the tests in the suite (folder) require the ame thing (e.g. sign in) put it in the tests\testcase.php file (public function signin() )
+and then reference it in the setUp function in the test file ( $this->signIn(); )
