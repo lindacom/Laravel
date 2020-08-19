@@ -1,0 +1,19 @@
+Testing validation rules
+===========================
+
+Testing validation rules (e.g. form fields)
+
+Required fields
+----------------
+
+In the controller file enter:
+
+$this->validate($request, [
+'title' => 'required' ]
+);
+
+In the test file to look for error in the title field enter:
+
+->assertSessionHasErrors('title');
+
+N.b. use with exceptionHandling in the method to catch the assertion.
