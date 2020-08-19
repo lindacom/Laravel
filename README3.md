@@ -4,9 +4,12 @@ Create a new database table from the commandline
 To create a table called favorites:
 
 ```
-php artisan make:migration create_favorites_table --create-favorites
-```
+php artisan make:migration create_favorites_table 
 
+```
+you can then go to the file in the database > migrations folder to add further column names.
+
+then run php artisan migrate to update the table
 For else statement
 ===================
 
