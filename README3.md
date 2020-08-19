@@ -10,6 +10,11 @@ php artisan make:migration create_favorites_table
 you can then go to the file in the database > migrations folder to add further column names.
 
 then run php artisan migrate to update the table
+
+Create a model from the commandline
+-----------------------------------
+
+php artisan make:model favorites
 For else statement
 ===================
 
