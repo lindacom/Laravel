@@ -1,3 +1,12 @@
+Create a new database table from the commandline
+================================================
+
+To create a table called favorites:
+
+```
+php artisan make:migration create_favorites_table --create-favorites
+```
+
 For else statement
 ===================
 
