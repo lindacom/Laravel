@@ -169,7 +169,43 @@ On the view page add previous and next links
 <a href="{{ URL::to( 'posts/' . $next ) }}">Next</a>
 ```
  
- 
+Pagination
+===========
+
+In the controller file retrieve collection with pagination (specify the number of records to return per page in the brackets) e.g.
+
+```
+ public function show(User $user) {
+        return view('profiles.showthread', [
+            'profilethreadUser' => $user,
+            'threads' => $user->threads()->paginate(1)
+        ]);
+    }
+```
+
+In the view file loop through the collection e.g.
+
+```
+@foreach ($threads as $thread)
+<iv class="panel panel-default">
+<div class="panel-heading">
+
+<a href="#">{{ $thread->creator->name }}</a> posted:
+{{ $thread->title }}
+</div>
+
+<div class="panel-body">
+{{ $thread->body }}
+</div>
+</div>
+@endforeach</div>
+```
+
+Then in the view file add the pagination links:
+
+```
+{{ $threads->links() }}
+```
  
 Authentication
 ===============
