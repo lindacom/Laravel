@@ -1,8 +1,11 @@
 How to
 =======
 
+Command line
+=============
+
 Create a new database table from the commandline
-================================================
+------------------------------------------------
 
 To create a table called favorites:
 
