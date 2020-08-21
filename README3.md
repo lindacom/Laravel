@@ -111,17 +111,20 @@ public function getRouteKeyName() {
 You can now retrieve the details e.g using the name column of the table e.g. example.com/profiles/mary
 
 
+Blade view file
+===============
 
 Linking to a view
-=================
+------------------
 
 ```
 <a href="{{ url("/posts") }}">
 
 ```
 Include a file contents in a page
-=======================
+----------------------------------
 Create a file _sidebar-links.blade.php
+Include the file:
 
 ```
 @include('_sidebar-links')
@@ -129,7 +132,7 @@ Create a file _sidebar-links.blade.php
 ```
 
 Flexbox layout
-================
+----------------
 
 To display three columns of equal spacing on a page
 
@@ -146,8 +149,35 @@ To display three columns of equal spacing on a page
           
  ```
  
+ Grouping records
+ ----------------
+ In the controller file obtain the collection 
+ 
+ ```
+    public function show(User $user) {
+        $activities = $user->activity()->latest()->with('subject')->get();
+
+        return view('profiles.showthread', [
+            'profilethreadUser' => $user,
+            'activities' => $activities
+            }
+ ```
+ 
+ In the view file loop through the activities and display the date as a heading. Within the loop create another loop to display the activities.
+ 
+ ```
+     @foreach ($activities as $date => $activity)
+                    <h3 class="page-header">{{ $date }}</h3>
+
+                    @foreach ($activity as $record)
+                        @include ("profiles.activities.{$record->type}", ['activity' => $record])
+                    @endforeach
+                @endforeach
+                
+  ```
+ 
 Previous and next record buttons
-===========================
+---------------------------------
 In the controller file show method add:
 
 ```
@@ -181,7 +211,7 @@ On the view page add previous and next links
 ```
  
 Pagination
-===========
+-------------
 
 In the controller file retrieve collection with pagination (specify the number of records to return per page in the brackets) e.g.
 
