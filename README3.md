@@ -1,3 +1,6 @@
+How to
+=======
+
 Create a new database table from the commandline
 ================================================
 
