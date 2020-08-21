@@ -14,7 +14,10 @@ then run php artisan migrate to update the table
 Create a model from the commandline
 -----------------------------------
 
+```
 php artisan make:model favorites
+```
+
 For else statement
 ===================
 
