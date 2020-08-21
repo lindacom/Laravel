@@ -151,19 +151,24 @@ To display three columns of equal spacing on a page
  
  Grouping records
  ----------------
- In the controller file obtain the collection 
+ In the controller file obtain the collection using the group by method helper to group by date
  
  ```
-    public function show(User $user) {
-        $activities = $user->activity()->latest()->with('subject')->get();
-
+   public function show(User $user) {
+        $activities = $user->activity()->latest()->with('subject')->take->(50)->get()->groupBy(
+            function ($activity) {
+                return $activity->created_at->format('Y-m-d');
+            });
+        
         return view('profiles.showthread', [
-            'profilethreadUser' => $user,
-            'activities' => $activities
-            }
+            'profilethreadUser' => $user, //the method in the user model
+            'activities' => $activities // sends $activities variable to the view
+        ]);
+    }
+}
  ```
  
- In the view file loop through the activities and display the date as a heading. Within the loop create another loop to display the activities.
+ In the view file loop through the activities variable and display the date as a heading. Within the loop create another loop to display the activities.
  
  ```
      @foreach ($activities as $date => $activity)
