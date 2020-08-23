@@ -1,0 +1,7 @@
+How to create favourites functionality
+=======================================
+
+1. Create database tables
+2. Create relationships in the model file (favourites method) 
+3. Create unique fields in the database migration file to prevent duplicate favourtes being entered
+4. Add a favourite button to the view page within a form field that includes csrf and post the evet to an endpoint
