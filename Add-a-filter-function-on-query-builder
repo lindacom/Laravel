@@ -1,0 +1,64 @@
+Filtering
+==========
+
+Here is an example of how to filter forum threads:
+
+1. Create a model file
+2. In the App directory create a filters folder and a filters file
+
+Model file
+-----------
+
+use Illuminate\Database\Eloquent\Builder;
+
+use a local scope
+
+```
+ public function scopeFilter($query, ThreadFilters $filters)
+    {
+        return $filters->apply($query);
+    }
+    
+```
+
+Filters file
+-----------
+
+```
+<?php
+
+namespace App\Filters;
+
+use App\User;
+
+class ThreadFilters extends Filters
+{
+    /**
+     * Registered filters to operate upon.
+     *
+     * @var array
+     */
+    protected $filters = ['by', 'popular'];
+    
+        protected function by($username)
+    {
+        $user = User::where('name', $username)->firstOrFail();
+
+        return $this->builder->where('user_id', $user->id);
+    }
+
+    /**
+     * Filter the query according to most popular threads.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    protected function popular()
+    {
+        $this->builder->getQuery()->orders = [];
+
+        return $this->builder->orderBy('replies_count', 'desc');
+    }
+    
+    ```
+    
+    
