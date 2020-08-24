@@ -1,0 +1,18 @@
+Notifications
+=============
+
+Laravel includes a notification class which yu can use in the model file (use notifiable).
+
+Notifications table
+--------------------
+Laravel comes with the structure for the notifications table. You can create a notifications table using the command 
+php artisan notifications:table then php artisan migrate
+
+Notifications file
+-------------------
+You can also create a notifications file using the command
+php artisan make:notification <filename>
+
+This creates a notifications folder in the app directory and a new file in this folder.
+
+In the notifications file specify the via route (e.g. email) and specify to array (text to be inserted into the table)
