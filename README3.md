@@ -110,6 +110,15 @@ public function getRouteKeyName() {
 
 You can now retrieve the details e.g using the name column of the table e.g. example.com/profiles/mary
 
+Prevent duplicate entries in the database
+-----------------------------------------
+
+In the database migration file enter unique fields
+
+```
+ $table->unique(['user_id', 'thread_id']);
+ ```
+
 
 Blade view file
 ===============
