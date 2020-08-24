@@ -6,7 +6,7 @@ need to download the service and extension in order to use redis in your project
 Installing redis
 ----------------
 1. Install redis service https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100 and extract the zip file to the directory of the project.
-2. Download the PECL extension (dll) folder to the php > ext directory. (N.b choose NTS or TS according to Thread Safety settings in phpinfo() 
+2. Download the PECL extension (dll) folder https://pecl.php.net/package/redis/5.3.1/windows to the php > ext directory. (N.b choose NTS or TS according to Thread Safety settings in phpinfo() 
 and place the dll file in the php > ext directory) - NTS
 3. Add the extension to the list of extensions in the php info file (extension=php_redis.dll)
 4. In visual studio code install redic from the commandline (composer require predis/predis)
