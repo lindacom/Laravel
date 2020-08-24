@@ -17,6 +17,14 @@ you can then go to the file in the database > migrations folder to add further c
 
 then run php artisan migrate to update the table
 
+Create a migration file for an existing database table
+-------------------------------------------------------
+
+```
+php artisan make:migration add_threads_table --table=threads
+
+```
+
 Create a model from the commandline
 -----------------------------------
 
