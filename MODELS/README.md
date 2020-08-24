@@ -1,3 +1,8 @@
+Methods
+=======
+
+In th model file protected method means it is always returned with the collection
+
 Trait
 ======
 
