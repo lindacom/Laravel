@@ -1,0 +1,17 @@
+Create a WYSIWYG editor field
+===============================
+
+You can use a product like Trix Editor https://trix-editor.org.  See documentation github.com/baecamp/trix. N.b. you need the js file ad the css file to 
+use this packag which will then give you access to a trix editor.
+
+
+1. Install trix - npm install trix. N.b. After installing th package the js and css file is located in node_modules > trix > dist folder. You can either
+copy these files to the public directory or alternatively you can reference them through a CDN https://cdnjs.com/libraries/trix in the layout file.
+2. In the view page add a wrapper vue component from the resources > assets > js > components directory. N.b. for the field data to be pulled through it needs to have a 
+name property in the tag.
+3. Vue component file - N.b. Trix works by using the id from a hidden input field in the trix editor component tag. Place this in the template section of the vue component file. 
+In the script section enter 
+
+```
+import Trix from 'trix'
+```
