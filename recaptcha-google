@@ -1,0 +1,13 @@
+How to insert a Recaptcha form into a form
+===========================================
+
+1. In the browser search for recaptcha and go to the Google recaptcha site. 
+2. On the recaptcha site register a new site and choose type recaptcha v2. Enter list of domains and click register.
+3. Make a note of the site key (to be used in the html form) and the secret key (to be referenced in the php)
+4. In Laravel at the bottom of the .env file enter RECAPTCHA_SECRET= and paste the secret key
+5. In the config > services.php file enter recaptcha information o that your aplication does not have to reference this information in the .env file
+6. In Google recaptcha site under the client side integration heading copy the code and past at the end of the form.  Also copy the code to be used in the closing head tag.
+Paste both of these codes in the view file.
+7. View the page in the browser and you wll see the recaptcha 'I'm not a robot' checkbox on the page. N.b. behind the scenes this form will generate a secret key
+8. On th Google recaptcha site under the server side heading you will see that you eed to post secret, response and remote ip of the user
+(e.g. you can post this information from the controller file. You can ue a package such as Kitetail/zttp to do this https://github.com/kitetail/zttp.)
