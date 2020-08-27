@@ -1,0 +1,49 @@
+Publish a event with Redis
+===========================
+
+Publish a event with Redis, Node.js and Redis then subscribes to the event and socket.io emits to all clients.
+
+1. In the routes > web.php file use Redis Fascade at the top of the page.
+
+```
+Route::get('/', function () {
+
+    event(new UserSignedUp('JohnDoe'));
+
+    return view('welcome');
+
+    /*$data = [
+        'event' => 'UserSignedUp',
+        'data' => [
+            'username' => 'JohnDoe'
+        ]
+        ];
+});
+
+```
+2. In the root of the directory create a socket.js file
+
+```
+var server = require('http').Server();
+
+var io = require('socket.io')(server);
+
+var Redis = require('ioredis');
+var redis = new Redis();
+
+redis.subscribe('test-channel');
+
+redis.on('message', function(channel, message) {
+  
+ message = JSON.parse(message);
+
+  io.emit(channel + ':' + message.event, message.data); 
+
+});
+
+server.listen(3000);
+```
+
+3. Install io redis - npm install socket.io ioredis
+4. In the welcome.blade.php file add the vue.min.js and socket.io.min.js CDN libraries and set up a vue instance
+5. run node socket.js
