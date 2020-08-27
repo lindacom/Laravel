@@ -1,0 +1,41 @@
+Broadcast with Redis
+=====================
+
+Using Laravel's event broadcasting
+
+1. Create a socket.js file and add all server, socketio etc details
+2. In Laravel create an event - php artisan make: event <name>
+3. In the config > broadcasting.php file change default driver to Redis
+3. Open the new app > events > <name> file. Extend event and implement ShouldBroadcast.  Add a public variable
+
+N.b. only public properties will be serialised for broadcast
+
+```
+class <name> extends Event implements ShouldBroadcase
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $username;
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new PrivateChannel('channel-name');
+    }
+}
+```
+
+4. run node socket.js
