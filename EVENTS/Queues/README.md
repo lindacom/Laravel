@@ -1,6 +1,21 @@
 A job can be handled synchronously (done straight away) or asynchronusly (queued up as a job).
 
+Set up the environment
+======================
+
+Using redis
+
 In the .env file change the queue_connection= to redis
+
+using a database
+
+N.b if you don't have redis you can alternatively use a database.  
+Run the command php artisan queue:table to create a table then run php artisan migrate. This creates a jobs table.
+run the job. This inserts a job into the database
+run php artisan queue:work
+
+Dispatch a job to a log file using redis
+=============================
 
 e.g. in the web.php file enter the following code
 
