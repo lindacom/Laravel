@@ -72,3 +72,12 @@ N.b. add --tries=3 to specify that the worker should try to run the job three ti
 N.b. You can set up a database to record jobs on the failed queue - php artisan queue:failed-table
 
 N.b. to retry a job run  the following command using the id from the table or using all - php artisan queue:retry 1 and run queue worker again.
+
+Laravel Horizon
+===============
+
+A UI for redis backed queue jobs. After installation it creates 
+
+a config > horizon.php file.
+a app > providers > horizonserviceprovider.php file
+a vendor > horizon folder
