@@ -36,11 +36,20 @@ N.b. even if you use a worker the job will not display in the log file until aft
 
 Create a job from the commandline
 ==================================
-To create a job run php artisan make:job <name>.  This creates a new App\Jobs folder with a new file created. By default the class implements ShouldQueue. Nb using --sync after the filename in the make job command it wont go through a queue
+1. To create a job run php artisan make:job <name>.  This creates a new App\Jobs folder with a new file created. By default the class implements ShouldQueue. 
+Nb using --sync after the filename in the make job command it wont go through a queue
   
-Run the job
+2. Reference the job class in the web.php file
 
+```
 Route::get('/', function () {
 dispatch(new <name>);
   return 'finished';
   })
+  ```
+  
+  3. Run the job - open the page in the browser.
+  
+Restarting a queue from the comandline
+=======================================
+Run php artisan queue:restart to restart the queue and pick up any code changes that have been made.
