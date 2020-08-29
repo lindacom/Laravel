@@ -10,7 +10,24 @@ logger('hello there');
 
 return 'finished';
 });
+```
 
 N.b. Although the word finishd will be displayed in the browser no entries will be created in the log file until you assign a worker.
 
 A job is carried out by a worker.  To use a worker run php artisan queue:work
+
+Delayed job execution
+---------------------
+It is also possible to delay a job.
+
+```
+Route::get('/', function () {
+dispatch(function () {
+logger('hello there');
+})->delay(now()->addMinutes(2));
+
+return 'finished';
+});
+```
+
+N.b. even if you use a worker the job will not display in the log file until after the delay period.
