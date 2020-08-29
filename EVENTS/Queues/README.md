@@ -37,7 +37,9 @@ N.b. even if you use a worker the job will not display in the log file until aft
 Create a job from the commandline
 ==================================
 1. To create a job run php artisan make:job <name>.  This creates a new App\Jobs folder with a new file created. By default the class implements ShouldQueue. 
-Nb using --sync after the filename in the make job command it wont go through a queue
+
+Nb using --sync after the filename in the make job command it wont go through a queue.
+N.b. the job class can accept anyting in the constructor.  If you pass an eloquent model (e.g. user) it will be serialised (id) and unserialised (name) using the serializesmodels trait
   
 2. Reference the job class in the web.php file
 
