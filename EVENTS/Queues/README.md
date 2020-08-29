@@ -18,6 +18,8 @@ N.b. Although the word finishd will be displayed in the browser no entries will 
 
 A job is carried out by a worker.  To use a worker run php artisan queue:work
 
+
+
 Delayed job execution
 ---------------------
 It is also possible to delay a job.
@@ -50,8 +52,23 @@ dispatch(new <name>);
   })
   ```
   
-  3. Run the job - open the page in the browser.
+  3. To use a worker run php artisan queue:work
+  
+  4. Run the job - open the page in the browser.
   
 Restarting a queue from the comandline
 =======================================
 Run php artisan queue:restart to restart the queue and pick up any code changes that have been made.
+
+Failed jobs
+=============
+
+1. In the job file throw an exception in the handle function 
+
+2. To use a worker run php artisan queue:work
+
+N.b. add --tries=3 to specify that the worker should try to run the job three times before recording a fail. you can also set a timeout.
+
+N.b. You can set up a database to record jobs on the failed queue - php artisan queue:failed-table
+
+N.b. to retry a job run  the following command using the id from the table or using all - php artisan queue:retry 1 and run queue worker again.
