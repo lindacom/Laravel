@@ -1,5 +1,7 @@
 A job can be handled synchronously (done straight away) or asynchronusly (queued up as a job).
 
+In the .env file change the queue_connection= to redis
+
 e.g. in the web.php file enter the following code
 
 ```
@@ -30,4 +32,15 @@ return 'finished';
 });
 ```
 
-N.b. even if you use a worker the job will not display in the log file until after the delay period.
+N.b. even if you use a worker the job will not display in the log file until after the delay period. You can also delay in days.
+
+Create a job from the commandline
+==================================
+To create a job run php artisan make:job <name>.  This creates a new App\Jobs folder with a new file created. By default the class implements ShouldQueue. Nb using --sync after the filename in the make job command it wont go through a queue
+  
+Run the job
+
+Route::get('/', function () {
+dispatch(new <name>);
+  return 'finished';
+  })
