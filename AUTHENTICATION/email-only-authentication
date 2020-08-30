@@ -3,7 +3,39 @@ Email only authentication
 
 Rather than logging in with an email address and password you
 
-provide an email address
-an email is sent to the email address provided with a unique login link
-user clicks on the link which confirms that they own the email address
-user then has permission to sign in.
+Post request:
+1. User provide an email address
+2. Validate the request - $this->validate($this->request, ['email' => 'required|email']); return $this;
+3. Create a token - check that the user exits in the database, and assin to the user variable. return static::create(['user_id' => $user->id, 'token' => str_random(50)]);
+4. Send the token to the user - an email is sent to the email address provided with a unique login link mail::raw(<a href=""></a>)
+
+5. user clicks on the link which confirms that they own the email address
+6. Login the user - user then has permission to sign in. Auth::login($token->user)
+
+7. Delete the token - $token->delete();
+
+Setting up email only authentication
+---------------------------------------
+
+1. In a new project run php artisan make:auth which will give you all the scaffolding for login, register, reset password etc. You can see these in 
+app > http > controllers > auth directory
+3. Create a model which contains fillable fields for the table and also contains methods for the authentication request
+4. in the .env file enter the database connection credentials.Set the mail driver to log
+2. Create a migration file for login token
+5. Run the command php artisan migrate
+6. In the web.php file create a route for the view containing the authentication link 
+
+If you have set the driver to log then go to storage > logs to view the log file related to the email. The log file will contain a link 
+
+User pastes the link in the browser which takes them back to the website. The website confirms the token with that in the database and provides access.
+The endpoint for this routes uses the authenticate method in the auth controller.
+
+Github authentication using Laravel socialite
+==============================================
+
+1 Create a new project laravel new <name>
+2. composer require laravel/socialite
+in teh config > app.php file paste the socialite service provider class in teh providers section and add a global alias in the alias section of this file (see documentation)
+in the config > services.php file paste the github credentials (you could also use facebook etc)
+
+
