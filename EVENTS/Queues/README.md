@@ -1,5 +1,8 @@
 A job can be handled synchronously (done straight away) or asynchronusly (queued up as a job).
 
+1. Create a route
+2. Create a controller with an index method to dispatch the job
+
 Set up the environment
 ======================
 
