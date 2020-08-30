@@ -91,21 +91,21 @@ Nb. it is possible to group similar routes
 
 Middleware
 ===========
-Middleware is accessed in the middle of a request
+Middleware is accessed in the middle of a request. You can either add middleware in a callback closure (eg. in the web.php file) or in the controller file.
 
-web - checks if csrf token is set
+All middleware is managed in the app > http > kernel.php file - checks if csrf token is set, sessions, cookies etc.
 
-authenticate.php file - checks authentication
+individual middleware php files are stored in the App > http > middlewarefolder
 
-All middleware is managed in the kernel.php file and individual middleware 
+authenticate.php file - checks authentication. The handle method returns an unauthorised response or redirects userto the login page
+redirectauthenticaed.php - then handle method redirects authenticated user to a specific page
 
-php files are stored in the middleware folder
+N.b. you can also create additional middleware files - php artisan make:middleware.
 
-
-
-Use a hidden button field to store session details so that you dont get errors
+N.b Use a hidden button field to store session details so that you dont get errors
 
 USEFUL TUTORIALS
 ==================
 Shopping cart - https://www.youtube.com/playlist?list=PL55RiY5tL51qUXDyBqx0mKVOhLNFwwxvH <br />
 Social network - https://www.youtube.com/watch?v=_dd4-HEPejU&list=PL55RiY5tL51oloSGk5XdO2MGjPqc0BxGV
+Laracasts - https://laracasts.com/series/intermediate-laravel
