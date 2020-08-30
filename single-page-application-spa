@@ -1,0 +1,77 @@
+Single page application using Vue.js
+=====================================
+
+A single-page application (SPA) is a web application or website that interacts with the web browser by dynamically rewriting the current web page with new data.
+
+1. In visual studio code create a new project - laravel new <name>. Open the folder and open a new terminal.
+2. Install NPM dependencies into the project - npm install.  This creates a node_modules folder in the project.
+3. The Bootstrap and Vue scaffolding provided by Laravel is located in the laravel/ui Composer package
+
+install laravel/ui using Composer - composer require laravel/ui
+install the frontend scaffolding - php artisan ui vue
+Generate login / registration scaffolding - php artisan ui vue --auth
+
+run "npm install && npm run dev" to compile your fresh scaffolding
+
+4. Pull in Vue Router (see router.vuejs.org) - npm install vue-router
+5. In the resources > js > app.js file:
+
+import vue - import Vue from 'vue';
+Import routes - import routes from './routes';
+import vue router - import VueRouter from 'vue-router'; 
+
+install vue router as a plugin - Vue.use(VueRouter); 
+
+In the vue instance add a router new VueRouter.
+
+```
+const app = new Vue({
+    el: '#app';
+
+    router: new VueRouter(routes)
+
+});
+```
+
+6. In the resources > js directory create a new routes.js file and add the path and components for the routes e.g.
+
+```
+export default {
+    node: 'history',
+
+    routes: [
+        {
+            path: '/',
+            component: Home
+        },
+
+        {
+            path: '/about',
+            component: About
+        }
+    ]
+};
+```
+
+7. In the resources > js > components folder create the components (e.g. home.vue, about.vue).
+8. In the routes.js file import the components (i.e. import Home from './components/Home';)
+9. In the resources > views > welcome.blade.php file 
+
+load a div with an id app (this is bound to the view element in the app.js file) 
+Within this div use a router-vie element <router-view></router-view>
+Within this div add router links which when clicked accesses the components in the same page  <router-link to="/about">About</router-link>
+      
+
+import the /js/app.js file in a script tag.
+10. Run the command npm run watch to listen out for changes to the files
+11. Run the command php artisan serve and click the link to view the project in the browser.
+
+N.b. because we are only using one page to display various routes we need to specify a wildcard in the web.php file for the root url
+
+12. In the routes > web.php file edit the get route for the welcome view
+
+```
+Route::get('/{any?}', function () {
+    return view('welcome');
+});
+```
