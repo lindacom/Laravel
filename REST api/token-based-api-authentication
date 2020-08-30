@@ -27,6 +27,7 @@ axios
 .get('http://api/users?api_token=${this.token}')
 .catch(error => {
 this.message = error.response.data.error;
+this.users = [];
 })
  .then( {{ data }} => {
    this.users = data;
