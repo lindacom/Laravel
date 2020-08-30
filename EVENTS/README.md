@@ -1,8 +1,12 @@
 Events
 ========
 Larave's event service provider is located in vendor > laravel > src > illuminate > event > eventserviceprovider.php
+
 Jobs
 -----
+
+Events to be handled in the background. run php artisan make:job <name> this creates a new file in the new App > jobs folder. A job can be queued (using Amazon, beanstalk etc)
+the clas  implements ShouldBeQueued.
 
 Events
 --------
