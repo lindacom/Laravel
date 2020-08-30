@@ -1,0 +1,9 @@
+Email only authentication
+===========================
+
+Rather than logging in with an email address and password you
+
+provide an email address
+an email is sent to the email address provided with a unique login link
+user clicks on the link which confirms that they own the email address
+user then has permission to sign in.
