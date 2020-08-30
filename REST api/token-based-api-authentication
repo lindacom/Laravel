@@ -1,7 +1,7 @@
 Api request from vue component file
 ===================================
 
-In this example User must enter api token in the page to display content from the users api.
+In this example User must enter api token in the page to display content from the users api.N.b. you could create a middleware file to handle CORS header errors.
 
 
 1. In the routes > web.php file create a rout
