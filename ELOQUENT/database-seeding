@@ -1,0 +1,24 @@
+You can create dummy records in your database table using database seeding.  
+
+1. Create a database table
+2. Create a model
+3. Create a factory
+4. Create a table seeder
+
+In the database > seeds directory you will see a file caled DatabaseSeeder.php.  This is the main file that controls any other seeding file. The files are referenced in the
+run method of this file.
+
+Create a seed file
+--------------------
+Create a new file in the database > seeds directory
+In the file enter code for creating a factory in the run method  - factory('App\User', 50)->create
+
+
+
+Create seed records
+-------------------
+
+run the command php artisan db:seed 
+records should ow be added to the database using settings from the file located in databae > factories 
+
+N.b. you can create an associative array in the factory method in the seed file to overrise the defaults in the factory file.
