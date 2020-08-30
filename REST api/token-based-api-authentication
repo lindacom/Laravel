@@ -1,5 +1,9 @@
 Api request from vue component file
 ===================================
+
+In this example User must enter api token in the page to display content from the users api.
+
+
 1. In the routes > web.php file create a rout
 
 ```
@@ -14,14 +18,17 @@ return $user->users;
 ```
 
 data() {
-return { users: [] };
+return { users: [], token: '' };
 },
 
-created() {
-axios.get('http://api/users')
+Methods: {
+fetchUsers() {
+axios
+.get('http://api/users?api_token=${this.token}')
  .then(response => {
    this.users = response.data;
-   })
+   });
+   }
    }
    };
 ```
@@ -32,6 +39,15 @@ you can identify as a user using a token.
 axios.get('http://api/users?api_token=xxxxhkjklxuijllkjj')
 
 when making api request use the token.  The api will validate the token against what's stored in the database against the account.
+
+3. in the templae section of the vue component file enter
+
+<input placeholder="your laracasts api token" v-model="token" @keyup.enter="fetchUsers">
+
+<ul>
+<li v-for="user in users"
+v-text="user.name"></li>
+</u>
 
 In the users table create an api_token column
 when a user registers on the website assign a random string and assign it as an api token.
