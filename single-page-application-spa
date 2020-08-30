@@ -9,6 +9,7 @@ A single-page application (SPA) is a web application or website that interacts w
 
 install laravel/ui using Composer - composer require laravel/ui
 install the frontend scaffolding - php artisan ui vue
+install bootstrap scaffolding = php artisan ui bootstrap
 Generate login / registration scaffolding - php artisan ui vue --auth
 
 run "npm install && npm run dev" to compile your fresh scaffolding
