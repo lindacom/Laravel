@@ -1,5 +1,5 @@
-Api request from vue component file
-===================================
+Api request from vue component file using api token
+====================================================
 
 In this example User must enter api token in the page to display content from the users api.N.b. you could create a middleware file to handle CORS header errors.
 
@@ -57,6 +57,26 @@ v-text="user.name"></li>
 
 In the users table create an api_token column
 when a user registers on the website assign a random string and assign it as an api token.
+
+Enable users to create an api token
+=======================================
+
+1. Create a view file with a form to submit a PATCH request
+2. Create a route in the web.php file
+3. Create a controller file with an update function
+
+```
+public function update () {
+request()->user()->forceFill([
+'api_token' => $token = str_random(50)
+])->save();
+
+flash()->overlay('success!', 'we have generated a new token for you: ' .$token);
+
+return back();
+}
+}
+
 
 Useful code
 ---------
