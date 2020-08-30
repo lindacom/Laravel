@@ -58,3 +58,12 @@ v-text="user.name"></li>
 
 In the users table create an api_token column
 when a user registers on the website assign a random string and assign it as an api token.
+
+Useul code
+---------
+
+create a random token - $token = str_random(50);
+
+update token with a hashed token - $me->update(['api_token' => hash('sha256', $token)]);
+
+get the hashed version of the token - $me->api_token
