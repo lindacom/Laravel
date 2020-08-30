@@ -18,22 +18,26 @@ return $user->users;
 ```
 
 data() {
-return { users: [], token: '' };
+return { users: [], token: '' , message: ''};
 },
 
 Methods: {
 fetchUsers() {
 axios
 .get('http://api/users?api_token=${this.token}')
- .then(response => {
-   this.users = response.data;
+.catch(error => {
+this.message = error.response.data.error;
+})
+ .then( {{ data }} => {
+   this.users = data;
+   this.message = null;
    });
    }
    }
    };
 ```
 
-N.b you will notice i the config > auth.php file the default api driver is token.
+N.b you will notice in the config > auth.php file the default api driver is token.
 you can identify as a user using a token.
 
 axios.get('http://api/users?api_token=xxxxhkjklxuijllkjj')
@@ -43,6 +47,8 @@ when making api request use the token.  The api will validate the token against 
 3. in the templae section of the vue component file enter
 
 <input placeholder="your laracasts api token" v-model="token" @keyup.enter="fetchUsers">
+
+<p class="text-red italic text-sm" v-if="message" v-text="message"></p>
 
 <ul>
 <li v-for="user in users"
