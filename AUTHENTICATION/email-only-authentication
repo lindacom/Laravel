@@ -35,7 +35,16 @@ Github authentication using Laravel socialite
 
 1 Create a new project laravel new <name>
 2. composer require laravel/socialite
-in teh config > app.php file paste the socialite service provider class in teh providers section and add a global alias in the alias section of this file (see documentation)
-in the config > services.php file paste the github credentials (you could also use facebook etc)
+4. in teh config > app.php file paste the socialite service provider class in teh providers section and add a global alias in the alias section of this file 
+(see documentation github.com/laravel/socialite)
+4. in the config > services.php file paste the github credentials (you could also use facebook etc)
+
+N.b in your github account go to settings > developer settings > oAuth apps, register a new application and enter your localhost url (for development), enter
+a callback ur (where github will send the user to be authenticated). Once registered you will get a client id and a client secret
+
+N.b. for security also paste these credentials at the bottom of the .env file.
+
+5 Create routes in the web.php file
+6. Direct users to github for authenitcation
 
 
