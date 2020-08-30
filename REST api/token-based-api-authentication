@@ -4,7 +4,7 @@ Api request from vue component file
 In this example User must enter api token in the page to display content from the users api.N.b. you could create a middleware file to handle CORS header errors.
 
 
-1. In the routes > api.php file create a rout
+1. In the routes > api.php file create a route
 
 ```
 Route::get('users', function() {
@@ -38,14 +38,13 @@ this.users = [];
    };
 ```
 
-N.b you will notice in the config > auth.php file the default api driver is token.
-you can identify as a user using a token.
+N.b you will notice in the config > auth.php file the default api driver is token. This allows you to identify as a user using a token 
+(e.g. axios.get('http://api/users?api_token=xxxxhkjklxuijllkjj'). when making api request use the token.  
+The api will validate the token against what's stored in the database against the account.
 
-axios.get('http://api/users?api_token=xxxxhkjklxuijllkjj')
+3. In the config > auth.php file set api hash to true.
 
-when making api request use the token.  The api will validate the token against what's stored in the database against the account.
-
-3. in the templae section of the vue component file enter
+4. in the templae section of the vue component file enter
 
 <input placeholder="your laracasts api token" v-model="token" @keyup.enter="fetchUsers">
 
@@ -59,7 +58,7 @@ v-text="user.name"></li>
 In the users table create an api_token column
 when a user registers on the website assign a random string and assign it as an api token.
 
-Useul code
+Useful code
 ---------
 
 create a random token - $token = str_random(50);
