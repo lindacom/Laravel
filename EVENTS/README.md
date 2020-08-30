@@ -27,3 +27,8 @@ return view ('welcome);
 });
 
 ```
+
+Chron jobs
+=============
+
+The app > console > kernel.php schedules chron jobs
