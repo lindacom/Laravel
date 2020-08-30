@@ -1,0 +1,37 @@
+Api request from vue component file
+===================================
+1. In the routes > web.php file create a rout
+
+```
+Route::get('users', function() {
+$user = request()->user();
+
+return $user->users;
+})->middleware('auth:api');
+
+2. In the script section of the vue component file make an axios request to the api
+
+```
+
+data() {
+return { users: [] };
+},
+
+created() {
+axios.get('http://api/users')
+ .then(response => {
+   this.users = response.data;
+   })
+   }
+   };
+```
+
+N.b you will notice i the config > auth.php file the default api driver is token.
+you can identify as a user using a token.
+
+axios.get('http://api/users?api_token=xxxxhkjklxuijllkjj')
+
+when making api request use the token.  The api will validate the token against what's stored in the database against the account.
+
+In the users table create an api_token column
+when a user registers on the website assign a random string and assign it as an api token.
