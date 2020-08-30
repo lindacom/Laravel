@@ -31,4 +31,4 @@ return view ('welcome);
 Chron jobs
 =============
 
-The app > console > kernel.php schedules chron jobs
+The app > console > kernel.php schedules chron jobs. Use php artisan make command to schedule a worker to do the job and use the kernel file to schedule the frequency.
