@@ -47,4 +47,7 @@ Create a controller file - php artisan make:controller ProductController. Use th
     }
  ```
 Create a route in the web.php file pointing to the index action of the ProductController
+
+Output product data
+-----------------------
 In the view file loop through the products - @foreach($products as $product) @endforeach
