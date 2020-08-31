@@ -35,3 +35,16 @@ In the new database > seeds > producttableseeder file create the initial product
 In the database > seeds > DatabaseSeeder.php file specify that you want to run the ProductTableSeeder file
 Run php artisan migrate
 Run php artisan db:seed
+
+Create the view
+----------------
+Create a controller file - php artisan make:controller ProductController. Use the product model, create a getIndex action to get products
+
+```
+  public function getIndex() {
+        $products = Product::all();
+    return view('shop.index', ['products' => $products]);
+    }
+ ```
+Create a route in the web.php file pointing to the index action of the ProductController
+In the view file loop through the products - @foreach($products as $product) @endforeach
