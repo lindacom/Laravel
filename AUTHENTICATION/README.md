@@ -22,6 +22,21 @@ To get the name of an authenticated user and dislay it in a page write the follo
 
 <p>You are logged in {{ Auth::user()->name }} </p>
 
+Get url of page accessed before login page
+-------------------------------------------
+
+In the app > http > middleware > authenticate.php file get the old url enter:
+
+use Session;
+
+and in the handle function enter:
+Session::put('oldUrl', $request->url());
+
+In the controller file use the old url entr
+
+if (Session::has'oldUrl')) {
+return redirect()->to(Session::get('oldUrl');
+
 If/else signed in
 ------------------
 To display user name when signed in or page title when not signed in write the following in the view file
