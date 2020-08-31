@@ -1,0 +1,40 @@
+View
+----
+Hyperlink when clicked will reduce items in cart by one:
+<li><a href="{{ route('product.reduceByOne', ['id'=> $product['item']['id'] ]) }}">Reduce by 1</a></li> 
+
+Counter displaying total items in cart
+   <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a></li>
+              
+
+Route
+-----
+
+Route::get('/reduce/{id}',  [
+    'uses' => 'ProductController@getReduceByOne',
+    'as' => 'product.reduceByOne'
+    
+]);
+
+Controller
+-----------
+
+public function getReduceByOne($id) {
+   $oldCart = Session::has('cart') ? Session::get('cart') : null;
+$cart = new Cart($oldCart); //create a new cart passing in the old cart
+
+$cart->reduceByOne($id); //pass the id to the reduce by one function in the cart model file
+
+Session::put('cart', $cart);
+return redirect()->route('product.shoppingCart');
+}
+
+model
+------
+
+    public function reduceByOne($id) {
+         $this->items[$id]['qty']--;
+         $this->items[$id]['price']-= $this->items[$id]['item']['price'];
+         $this->totalQty--;
+         $this->totalPrice -= $this->items[$id]['item']['price'];
+     }
