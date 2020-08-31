@@ -51,3 +51,18 @@ Create a route in the web.php file pointing to the index action of the ProductCo
 Output product data
 -----------------------
 In the view file loop through the products - @foreach($products as $product) @endforeach
+
+Store orders in database table
+----------------------------------
+Create orders model (with a relation to a user) and table - php artisan make:model Order -m
+
+```
+ $order = new Order();
+    $order->cart = serialize($cart);
+    $order->address = $request->input('address');
+    $order->name = $request->input('name');
+    $order->payment_id = $charge->id;
+
+    Auth::user()->orders()->save($order);
+    
+ ```
