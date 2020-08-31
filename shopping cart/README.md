@@ -1,9 +1,37 @@
 Laravel shopping cart
 =======================
 
-Shopping cart - https://www.youtube.com/playlist?list=PL55RiY5tL51qUXDyBqx0mKVOhLNFwwxvH
+Tutorial: Shopping cart - https://www.youtube.com/playlist?list=PL55RiY5tL51qUXDyBqx0mKVOhLNFwwxvH
 
+Set up the environment
+------------------------
 Download project repository
 Change .env.example file to .env
 Run the command php artisan key:generate
+
+Set up the database
+---------------------
 In the .env file enter database connection credentials.
+In the config > database.php file set the default database connection and enter the database credentials
+Run the command php artisan make:model Product -m 
+In the new App > product file insert a protected fillable array
+in the new database > migrations > create products table configure the schema for the new products table
+Run the commad php artisan make:seed ProductTableSeeder
+In the new database > seeds > producttableseeder file create the initial products for your project
+
+```
+ public function run()
+    {
+        $product = new \App\Product([
+            'imagePath' => '',
+            'title' => 'Harry otter',
+            'description' => 'great book',
+            'price' => 10
+         ]);
+         $product->save();
+    }
+```
+
+In the database > seeds > DatabaseSeeder.php file specify that you want to run the ProductTableSeeder file
+Run php artisan migrate
+Run php artisan db:seed
