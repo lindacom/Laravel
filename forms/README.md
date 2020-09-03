@@ -1,5 +1,47 @@
+Form validation
+================
+
+When a form is submitted. Controller file:
+```
+   public function postSignUp(Request $request)
+    {
+
+        //validates the field in form request using the name property
+        $this->validate($request, [
+            'email' => 'required|email|unique:users',
+            'first_name' => 'required|max:120',
+            'password' => 'required|min:4'
+        ]);
+
+// assigns the request field input to a variable
+        $email = $request['email'];
+        $first_name = $request['first_name'];
+        $password = bcrypt($request['password']);
+
+        //uses user model and column in the user table set to request variable above
+        $user = new User();
+        $user->email = $email;
+        $user->first_name = $first_name;
+        $user->password = $password;
+
+        //saves the new user
+        $user->save();
+
+        //login the user
+        Auth::login($user);
+
+        return redirect()->route('dashboard');
+    }
+ ```
+ 
+ Retain form input after errors displayed
+ --------------------------------------------
+ ```
+             <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}">
+ ```
+
 Form input to database
-=======================
+----------------------
 
 1. Create a model
 2. Create a route to controller
