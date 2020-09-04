@@ -106,12 +106,19 @@ N.b. the name in the controller 'posts' must be equal to the one in the foreach 
 
 Get posts by id
 ---------------
-Pass the post ID as a variable to the action method and then search the post collection where id equals the post ID variable.
+1. From the view page pass the post ID as a variable to the route for the action method 
+
+```
+   <a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a>
+```
+
+2. In the controller file in the action method search the post collection where id equals the post ID variable.
 
 ```
   public function getDeletePost($post_id)
     {
         $post = Post::where('id', $post_id)->first();
 ```
-
+N.b. the name in the array must equal the parameter expected by the action method i.e. $post_id
+N.b. alternatively you could use  $post = Post::find($post_id)->first();
 
