@@ -82,6 +82,7 @@ Controllers
 ============
 
 Make posts collection available in a view page
+----------------------------------------------
 
 1. At the top of the file use the model e.g. App > Post
 2. Create an action that will fetch the post and send it to the view file
@@ -102,5 +103,15 @@ Make posts collection available in a view page
 N.b. the name in the controller 'posts' must be equal to the one in the foreach statement $posts.
 
 4. You can then access the database fields as a property of the post object. e.g {{ $post->body }}
+
+Get posts by id
+---------------
+Pass the post ID as a variable to the action method and then search the post collection where id equals the post ID variable.
+
+```
+  public function getDeletePost($post_id)
+    {
+        $post = Post::where('id', $post_id)->first();
+```
 
 
