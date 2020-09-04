@@ -1,0 +1,121 @@
+Routes
+-------
+```
+Route::get('/search','SearchController@index');
+Route::get('/search/action','SearchController@search')->name('search.action');
+```
+
+Model
+------
+
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+protected $table = 'products';
+    protected $fillable = ['imagePath', 'title', 'description', 'price'];
+}
+```
+
+View
+-----
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="_token" content="{{ csrf_token() }}">
+<title>Live Search</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3>Products info </h3>
+</div>
+<div class="panel-body">
+<div class="form-group">
+<input type="text" class="form-controller" id="search" name="search"></input>
+</div>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Product Name</th>
+<th>Description</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#search').on('keyup',function(){
+$value=$(this).val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('search/action')}}',
+data:{'search':$value},
+success:function(data){
+$('tbody').html(data);
+}
+});
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
+</body>
+</html>
+```
+
+Controller
+----------
+
+```
+<?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use DB;
+use App\Product;
+class SearchController extends Controller
+{
+   public function index()
+{
+return view('search.index');
+}
+public function search(Request $request)
+{
+if($request->ajax())
+{
+$output="";
+$products=DB::table('products')->where('title','LIKE','%'.$request->search."%")->get();
+if($products)
+{
+foreach ($products as $key => $product) {
+$output.='<tr>'.
+'<td>'.$product->id.'</td>'.
+'<td>'.$product->title.'</td>'.
+'<td>'.$product->description.'</td>'.
+'<td>'.$product->price.'</td>'.
+'</tr>';
+}
+return Response($output);
+   }
+   }
+}
+}
+
+```
