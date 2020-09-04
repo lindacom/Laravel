@@ -37,6 +37,22 @@ To get the name of an authenticated user and dislay it in a page write the follo
 
 <p>You are logged in {{ Auth::user()->name }} </p>
 
+Create a post and attach to a user
+-----------------------------------------
+Create the relationship in the post model file i.e. a post belongs to a user
+
+```
+ public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+ ```
+ In the controller file pass request to the action method and save the post to the user
+ 
+```
+$request->user()->posts()->save($post)
+```
+
 Get url of page accessed before login page
 -------------------------------------------
 
