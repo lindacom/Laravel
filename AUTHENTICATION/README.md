@@ -55,6 +55,8 @@ $request->user()->posts()->save($post)
 
 Check if authenticated user is the owner of the post
 -----------------------------------------------------
+e.g. delete button - prevent a user being able to delete another user's post
+
 In the controller action method:
 ```
   if (Auth::user() != $post->user) {
