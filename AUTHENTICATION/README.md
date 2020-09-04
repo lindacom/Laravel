@@ -1,19 +1,34 @@
 Authentication
 ==============
+The middleware authentication uses the app > http > middleware > authenticate.php file. You are able to call this using auth because 'auth' is listed as the key in the
+app > http > kernel.php file.
 
 Add authentication
 ------------------
-To add authentication to a page write the following in a controller file
+To add authentication to a page write the following in a controller file:
 
+```
 public function __construct() {
 $this->middleware('auth');
 }
+```
 
 A user will then need to be signed in to view the page retured in the view.
 
 N.b you could alternatively add middleware to the routes in the web.php file
 
+```
 e.g. (HomeController)->middleware('auth')
+```
+
+```
+e.g. 
+Route::get('/dashboard', [
+    'uses' => 'PostController@getDashboard',
+    'as' => 'dashboard',
+    'middleware' => 'auth'
+]);
+```
 
 Get authenticated user's name
 -------------------------------
