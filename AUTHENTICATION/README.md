@@ -53,6 +53,15 @@ Create the relationship in the post model file i.e. a post belongs to a user
 $request->user()->posts()->save($post)
 ```
 
+Check if authenticated user is the owner of the post
+-----------------------------------------------------
+
+```
+  if (Auth::user() != $post->user) {
+            return redirect()->back();
+        }
+```
+
 Get url of page accessed before login page
 -------------------------------------------
 
