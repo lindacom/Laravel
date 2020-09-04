@@ -57,28 +57,33 @@ Get url of page accessed before login page
 -------------------------------------------
 
 In the app > http > middleware > authenticate.php file get the old url enter:
-
+```
 use Session;
-
+```
 and in the handle function enter:
+```
 Session::put('oldUrl', $request->url());
+```
+In the controller file use the old url enter
 
-In the controller file use the old url entr
-
+```
 if (Session::has'oldUrl')) {
 return redirect()->to(Session::get('oldUrl');
+```
 
 If/else signed in
 ------------------
 To display user name when signed in or page title when not signed in write the following in the view file
 
+```
 @if(Auth::check())
 Hi, {{ Auth::user()->name }}
     @else
      Laravel
 @endif
+```
 
-N.b. instead of using the if statemtn you could use @auth and @endauth
+N.b. instead of using the if statement you could use @auth and @endauth
 
 N.b. as an alternative to checking an authenticated user you can use @guest and @endguest to display a message for a guest user.
 
@@ -124,4 +129,23 @@ In th routes file apply middleware with identifier, ability name and wildcard as
 ->middleware('can::view, conversation')
 
 N.b. you can alternatively add the middleware to the controller file.
+
+Log out
+========
+
+In the controller file use the auth fascade 
+
+```
+use Illuminate\Support\Facades\Auth;
+```
+
+and then reference it in the action method
+
+```
+ public function getLogout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+```
 
