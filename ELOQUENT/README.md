@@ -94,4 +94,6 @@ Make posts collection available in a view page
    @foreach($posts as $post)
 ```
 
+N.b. the name in the controller 'posts' must be equal to the one in the foreach statement $posts.
+
 
