@@ -72,6 +72,11 @@ User model:
                      } 
                      
 ```
+In the PostController file you will then be able to access the user as a property of post 
+
+```
+Posted by {{ $post->user->first_name }}
+```
 
 Controllers
 ============
