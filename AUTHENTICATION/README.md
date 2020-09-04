@@ -55,11 +55,17 @@ $request->user()->posts()->save($post)
 
 Check if authenticated user is the owner of the post
 -----------------------------------------------------
-
+In the controller action method:
 ```
   if (Auth::user() != $post->user) {
             return redirect()->back();
         }
+```
+
+In the view page you can show certain content based on the same check:
+
+```
+   @if(Auth::user() == $post->user) enter content here @endif
 ```
 
 Get url of page accessed before login page
