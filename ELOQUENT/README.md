@@ -22,7 +22,7 @@ To create a relationship between articles and users:
 N.b. if a user is delete the relationship still exists with the apost.
 
 Foreign key
-----------
+===============
 The posts table needs a user_id column and this will be the foreign key.
 
 A foreign key constraint is used to link two tables together. Field(s) in the child table refers to the primary key of the parent table.  A foreign key constraing prevents 
@@ -36,14 +36,14 @@ In Sql server:
 CREATE TABLE posts (
 user_id int FOREIGN KEY REFERENCES users(user_id)
 );
-
+```
 In mysql:
 ```
 
 FOREIGN KEY(user_i) REFERENCES users(user_id)
 ```
 Models
----------
+========
 
 Post model:
 
@@ -71,6 +71,27 @@ User model:
                 return $this->hasMany(Post::class);
                      } 
                      
+```
+
+Controllers
+============
+
+Make posts collection available in a view page
+
+1. At the top of the file use the model e.g. App > Post
+2. Create an action that will fetch the post and send it to the view file
+
+
+```
+  public function getDashboard()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('dashboard', ['posts' => $posts]);
+    }
+```
+3. In the view file loop over the post collection
+```
+   @foreach($posts as $post)
 ```
 
 
