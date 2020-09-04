@@ -96,4 +96,6 @@ Make posts collection available in a view page
 
 N.b. the name in the controller 'posts' must be equal to the one in the foreach statement $posts.
 
+4. You can then access the database fields as a property of the post object. e.g {{ $post->body }}
+
 
