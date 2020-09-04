@@ -41,7 +41,7 @@ When a form is submitted. Controller file:
  ```
 
 Form input to database
-----------------------
+========================
 
 1. Create a model
 2. Create a route to controller
@@ -61,6 +61,9 @@ Form should use post method and action the route that points to the controller s
 ```
 
 Display errors for mandatory fields
+-------------------------------------
+
+N.b. as error messages may be used on various pages you could place the code in an include file and then include it in the view pages   @include('includes.message-block')
 
 ```
   @error('body')
