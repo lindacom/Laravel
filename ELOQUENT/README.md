@@ -122,3 +122,10 @@ Get posts by id
 N.b. the name in the array must equal the parameter expected by the action method i.e. $post_id
 N.b. alternatively you could use  $post = Post::find($post_id)->first();
 
+Sort a collection
+------------------
+
+```
+ $posts = Post::orderBy('created_at', 'desc')->get();
+```
+
