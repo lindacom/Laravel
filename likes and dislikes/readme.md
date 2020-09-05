@@ -1,23 +1,63 @@
-Likes and dislikes
-===================
+Likes and dislikes using Ajax
+================================
 
-models and ajax
+Tutorial: https://www.youtube.com/watch?v=y5qZJ7sYN88&list=PL55RiY5tL51oloSGk5XdO2MGjPqc0BxGV&index=19
+
+Tables
+------
+Likes - id, user_id, post_id, like, created_at, updated_at
+
+Model
+------
+Create like model and database migration file - php artisan make:model Like -m
+
+A like belongs to a post and belongs to a user:
+
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Like extends Model
+{
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function post()
+    {
+        return $this->belongsTo('App\Post');
+    }
+}
+```
+
+A post belongs to a user and can have multiple likes:
+
+```
+class Post extends Model
+{
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+}
+```
 
 plan
 ------
 
-create likes table to store
+
 is it a like or dislike - 1 like 0 dislike
 id of the user who liked or disliked
 id of the post
-
-create a like model (relationship - a like is done by one user attached to one post)
-
-use the post model (relationship - a post can have multiple likes)
-
-use the user model (relationship - user can have multiple likes)
-
-
 
 activate the links in the dashboard page 
 
