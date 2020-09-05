@@ -1,0 +1,110 @@
+File upload form
+=================
+functionality - an account update view page with name field and file upload field.
+
+N.b. storage settings are configured in config > filesystem.php
+
+View
+-----
+
+The if statement checks if the file already exists in laravel storage directory and displays it
+```
+<section class="row new-post">
+        <div class="col-md-6 col-md-offset-3">
+            <header><h3>Your Account</h3></header>
+            <form action="{{ route('account.save') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image (only .jpg)</label>
+                    <input type="file" name="image" class="form-control" id="image">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Account</button>
+                <input type="hidden" value="{{ Session::token() }}" name="_token">
+            </form>
+        </div>
+    </section>
+    @if (Storage::disk('local')->has($user->first_name . '-' . $user->id . '.jpg'))
+        <section class="row new-post">
+            <div class="col-md-6 col-md-offset-3">
+                <img src="{{ route('account.image', ['filename' => $user->first_name . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive">
+            </div>
+        </section>
+    @endif
+    ```
+    
+    Routes
+    -------
+    
+    ```
+    Route::get('/account', [
+    'uses' => 'UserController@getAccount',
+    'as' => 'account'
+]);
+
+Route::post('/upateaccount', [
+    'uses' => 'UserController@postSaveAccount',
+    'as' => 'account.save'
+]);
+
+Route::get('/userimage/{filename}', [
+    'uses' => 'UserController@getUserImage',
+    'as' => 'account.image'
+]);
+```
+
+Controller
+-----------
+N.b use the file and the storage fascades
+
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+```
+
+Display view page:
+
+    public function getAccount()
+    {
+        return view('account', ['user' => Auth::user()]);
+    }
+    
+Save form input:
+
+    public function postSaveAccount(Request $request)
+    {
+        $this->validate($request, [
+           'first_name' => 'required|max:120'
+        ]);
+
+        $user = Auth::user();
+        $old_name = $user->first_name;
+        $user->first_name = $request['first_name'];
+        $user->update();
+        $file = $request->file('image'); //get filename from the requet
+        $filename = $request['first_name'] . '-' . $user->id . '.jpg'; //set a unique filename
+        $old_filename = $old_name . '-' . $user->id . '.jpg';
+        $update = false;
+        if (Storage::disk('local')->has($old_filename)) {
+            $old_file = Storage::disk('local')->get($old_filename);
+            Storage::disk('local')->put($filename, $old_file);
+            $update = true;
+        }
+        if ($file) { //checks if a file has been uploaded
+            Storage::disk('local')->put($filename, File::get($file)); //using the storage fascade to save to local disk specified in the filesystem.php file
+        }
+        if ($update && $old_filename !== $filename) {
+            Storage::delete($old_filename);
+        }
+        return redirect()->route('account');
+    }
+    
+    Check if file exits and return a 200 response.  This check is used in the view file to get the image from storage directory:
+
+    public function getUserImage($filename)
+    {
+        $file = Storage::disk('local')->get($filename);
+        return new Response($file, 200);
+    }
+    ```
