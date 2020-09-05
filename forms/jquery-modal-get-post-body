@@ -118,7 +118,16 @@ layout > master
 
 Update the database
 ------------------------
+Route:
 
+```
+Route::post('/edit', [
+    'uses' => 'PostController@postEditPost',
+    'as' => 'edit'
+]);
+```
+
+Controller:
 ```
 public function postEditPost(Request $request)
     {
