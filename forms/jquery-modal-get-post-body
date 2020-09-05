@@ -1,3 +1,7 @@
+Modal
+=======
+Functionality - click the edit link on the view page to open a model containing post content from the database.  Edit the content and save the changes to the database.
+
 app.js
 -------
 
@@ -110,4 +114,23 @@ layout > master
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="{{ URL::to('src/js/app.js') }}"></script>
 </body>
+```
+
+Update the database
+------------------------
+
+```
+public function postEditPost(Request $request)
+    {
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+        $post = Post::find($request['postId']);
+        if (Auth::user() != $post->user) {
+            return redirect()->back();
+        }
+        $post->body = $request['body'];
+        $post->update();
+        return response()->json(['new_body' => $post->body], 200);
+    }
 ```
