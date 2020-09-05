@@ -2,6 +2,9 @@ app.js
 -------
 
 ```
+
+Edit post:
+
 $('.post').find('.interaction').find('.edit').on('click', function (event) {
     event.preventDefault();
 
@@ -11,6 +14,8 @@ $('.post').find('.interaction').find('.edit').on('click', function (event) {
     $('#post-body').val(postBody);
     $('#edit-modal').modal();
 });
+
+Save post:
 
 $('#modal-save').on('click', function () {
     $.ajax({
@@ -29,6 +34,9 @@ View
 ----
 
 ```
+
+Edit link to modal form:
+
   @foreach($posts as $post)
                 <article class="post" data-postid="{{ $post->id }}">
                     <p>{{ $post->body }}</p>
@@ -48,6 +56,8 @@ View
             @endforeach
         </div>
     </section>
+    
+    Modal form:
 
     <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog">
