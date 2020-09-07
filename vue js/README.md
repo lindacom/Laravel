@@ -97,7 +97,7 @@ return { message: 'foobar' };
 Data binding - lists
 ---------------------
 Enter data as an array
-
+```
 <script>
 new Vue ({
 el: '#root',
@@ -108,7 +108,7 @@ You can then echo list items using the v-for directive
 
 <li v-for="name in names"> {{ name }}</li>
 
-N.b yu could also write this as <li v-for="name in names" v-text="name"></li>
+N.b you could also write this as <li v-for="name in names" v-text="name"></li>
 
 Data binding - add items to array using event listener
 ------------------------------------------------------
