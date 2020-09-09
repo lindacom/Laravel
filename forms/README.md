@@ -96,6 +96,7 @@ N.b. as error messages may be used on various pages you could place the code in 
   
   ```
   <action="{{ route('articles.show', $article }}">
+  ```
   
   Form validation
   ----------------
@@ -132,3 +133,36 @@ Inserting a value of old will ensure that when the form is submitted with errors
     }
     
  ```
+ 
+ Enhance forms with Vue
+ =======================
+ 1. At the bottom of the view file add script files to import axios cdn and vue cdn and import /js/app.js.
+ 2. In the appjs file create a view instance and specify data
+ 
+ ```
+ data: {
+ name: '',
+ description: '',
+ },
+ ```
+ 3. In the view file add v-model directive to input fields (<input v-model='description'>)
+ and listen for wen the form is submitted (in the form tag enter @submit='onSubmit')
+ 
+ 4. In app.js file entr method for the submit event. Use axios to submit post request to an endpoint (which hits method in controller)
+ 
+ ```
+ methos: {
+ onSubmit() {
+ axios.post('/projects', {
+ name: this.name,
+ description: this.description
+ });
+ }
+ }
+ 
+ ```
+ N.b. you could alternatively use this.data
+ N.b you can modify default behaviour by adding . after dirctive e.g
+ @submit.once - only submit once
+ @submit.prevent - prevent default behaviour
+ 
