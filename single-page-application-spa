@@ -3,6 +3,8 @@ Single page application using Vue.js
 
 A single-page application (SPA) is a web application or website that interacts with the web browser by dynamically rewriting the current web page with new data.
 
+Set up the environment
+------------------------
 1. In visual studio code create a new project - laravel new <name>. Open the folder and open a new terminal.
 2. Install NPM dependencies into the project - npm install.  This creates a node_modules folder in the project.
 3. The Bootstrap and Vue scaffolding provided by Laravel is located in the laravel/ui Composer package
@@ -14,16 +16,27 @@ Generate login / registration scaffolding - php artisan ui vue --auth
 
 run "npm install && npm run dev" to compile your fresh scaffolding
 
-4. Pull in Vue Router (see router.vuejs.org) - npm install vue-router
-5. In the resources > js > app.js file:
+Routing
+---------
 
-import vue - import Vue from 'vue';
-Import routes - import routes from './routes';
-import vue router - import VueRouter from 'vue-router'; 
+1. Create a web route for the one main page - In the routes > web.php file edit the get route for the welcome view.
 
-install vue router as a plugin - Vue.use(VueRouter); 
+```
+Route::get('/{any?}', function () {
+    return view('welcome');
+});
+```
 
-In the vue instance add a router new VueRouter.
+2. Create the vue files that will be pulled in by routes - In the resources > js > components folder create the components (e.g. home.vue, about.vue).
+3. Install Vue Router (see router.vuejs.org) - npm install vue-router
+4. Import vue router in the resources > assets > js > bootstrap.js file - import vue router - import VueRouter from 'vue-router'; 
+5. Create a routes.js file to list all the single page application routes. 
+
+import the components (i.e. import Home from './components/Home';)
+
+Export a new instance of vue router that will contain route dtails. 
+
+In the vue instance add a router new VueRouter:
 
 ```
 const app = new Vue({
@@ -33,8 +46,7 @@ const app = new Vue({
 
 });
 ```
-
-6. In the resources > js directory create a new routes.js file and add the path and components for the routes e.g.
+6. Define routes - In the resources > js directory create a new routes.js file and add the path and components for the routes e.g.
 
 ```
 export default {
@@ -54,9 +66,18 @@ export default {
 };
 ```
 
-7. In the resources > js > components folder create the components (e.g. home.vue, about.vue).
-8. In the routes.js file import the components (i.e. import Home from './components/Home';)
-9. In the resources > views > welcome.blade.php file 
+7. In resources > assets > js > app.js file import router. - import router from './routes'; and pass it to the vue intance
+
+```
+new Vue ({
+el: '#app',
+router
+});
+
+Display routes
+---------------
+ 
+8. In the resources > views > welcome.blade.php file you can now use the router-link tog for links and router-view tag for content
 
 load a div with an id app (this is bound to the view element in the app.js file) 
 Within this div use a router-vie element <router-view></router-view>
@@ -64,15 +85,27 @@ Within this div add router links which when clicked accesses the components in t
       
 
 import the /js/app.js file in a script tag.
-10. Run the command npm run watch to listen out for changes to the files
-11. Run the command php artisan serve and click the link to view the project in the browser.
+
+9. Run the command npm run watch to listen out for changes to the files
+10. Run the command php artisan serve and click the link to view the project in the browser.
 
 N.b. because we are only using one page to display various routes we need to specify a wildcard in the web.php file for the root url
 
-12. In the routes > web.php file edit the get route for the welcome view
+Vue filters
+=============
+
+In the component define a filter that accepts an argumet then in the methods you can format it
 
 ```
-Route::get('/{any?}', function () {
-    return view('welcome');
-});
-```
+filters: {
+age(date) {
+return moment(dat).fromNow();
+}
+}
+
+In the view file use the pie symol to referene the filter that the previous string should be sent through. N.b. you can use as many filters as you need
+
+{{ status.created_at | age }}
+
+
+
