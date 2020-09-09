@@ -136,6 +136,50 @@ Inserting a value of old will ensure that when the form is submitted with errors
  
  Enhance forms with Vue
  =======================
+ 
+ Bound input
+ -----------
+ 1. In the vue instance set up data
+ 
+ ```
+ data: {
+ coupon 'freebie'
+ }
+ ```
+ 
+ 2. Bind the input field <input :value='coupon'>
+ 
+ 3. Listen for the changed input and get the value
+ 
+ ```
+ <input type='text' :value='coupon' @input='coupon=$event.target.value'>
+ ```
+ N.b. you can alternatively create an input component
+ 
+ Input component
+ ----------------
+ 1. Above the vue instance crate a component called coupon
+ 
+ ```
+ vue.component('coupon', {
+ props: ['code'],
+ 
+ template: '
+ <input type='text' value='code' @input 'updateCode($event.target.value)'>
+ ',
+ 
+ methods: {
+ updateCode(code) {
+ this.$emit('input', code);
+ }
+ }
+ });
+ 
+ 2. In the view file enter a tag <coupon v-model ='coupon'> and bind it to the component so that it listens has items to input event
+ 
+ 
+ Ajax - axios
+ --------------
  1. At the bottom of the view file add script files to import axios cdn and vue cdn and import /js/app.js.
  2. In the appjs file create a view instance and specify data
  
