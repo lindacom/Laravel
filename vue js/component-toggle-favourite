@@ -1,0 +1,7 @@
+Favourites comonent which can be reused.
+
+Import vu file at the to of the file ad reference component within the component.
+
+In the view fle add a button 
+
+<button type="button" :class=favoriteClasses @click="toggleFavorite">
