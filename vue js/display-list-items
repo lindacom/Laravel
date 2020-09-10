@@ -1,0 +1,17 @@
+Display list items
+===================
+
+Component file
+---------------
+
+1. Create a component file (e.g. menu-list).
+2. In the template tag create an li element to loop through the items using the alias item - v-for='item in items' and to display each item v-text='item'
+N.b. you can also use slots
+3. In the script tag pass items to props
+
+View file
+----------
+
+Import copiled scrpt /js/app.js at the bottom of the page
+Create a div with the id app so that it will be bound to the vue element
+Insert the component tag <menu-list></menu-list>
