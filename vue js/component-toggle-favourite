@@ -1,7 +1,59 @@
+Toggle favourite
+================
+
 Favourites comonent which can be reused.
 
-Import vu file at the to of the file ad reference component within the component.
+Import vue file at the top of the file and reference component within the component.
 
 In the view fle add a button 
 
 <button type="button" :class=favoriteClasses @click="toggleFavorite">
+
+In the vue component file create a function to check if favourited and submit ajax request to unfavourite/favourite. Computed changes the button colour when clicked.
+
+<script>
+export default {
+
+props: ['attributes'],
+
+data() {
+return {
+editing: false,
+body: this.attributes.body,
+favoritesCount: this.attributes.favoritesCount,
+isFavorited: this.attributes.isFavorited
+};
+},
+
+computed: {
+
+favoriteClasss() {
+return ['btn', 'btn-toggle', this.isFavorited ? 'btn-primary' : 'btn-default'];
+}
+},
+
+methods: {
+
+toggleFavorite() {
+return this.isFavorited ? this.unfavorite() : this.favorite();
+},
+
+favorite() {
+axios.post('/replies/' + this.attribute.id + '/favorites');
+this.favoritesCount ++;
+this.isFavorited = !thisisFavorited;
+flash('favorited!');
+},
+
+unfavorite() {
+xios.delete('/replies/' + this.attribute.id + '/favortes');
+this.favoritesCount --;
+this.isFavorited = !this.isFavorited;
+flash('favorites removed!');
+},
+}
+
+
+
+
+
