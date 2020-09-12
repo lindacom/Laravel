@@ -68,6 +68,17 @@ Output product data
 -----------------------
 In the view file loop through the products - @foreach($products as $product) @endforeach
 
+User sign in 
+-------------
+
+Middleware authenitcation
+-----------------------------
+
+Sessions
+----------
+Shopping cart
+-------------
+
 Store orders in database table
 ----------------------------------
 Create orders model (with a relation to a user) and table - php artisan make:model Order -m
@@ -82,3 +93,6 @@ Create orders model (with a relation to a user) and table - php artisan make:mod
     Auth::user()->orders()->save($order);
     
  ```
+ 
+ Retrieve orders from database table
+ ------------------------------------
