@@ -89,9 +89,16 @@ Create the models
 
 Create the view pages
 ----------------------
+
+user:
 1. Profile
+2. Signin
+3. signup
 
-
+shop:
+1. checkout
+2. index
+3. shopping-cart
 Create the controllers
 ----------------------
 
