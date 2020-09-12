@@ -2,6 +2,23 @@
 
 Functionality
 =============
+Index:
+view all products
+add products to the cart
+
+Cart:
+view the cart
+perform cart actions - reduce by one, increase by one, reduce all
+checkout
+
+Checkout:
+sign in/sign up to order products
+Submit checkout form
+
+User profile:
+View profile and orders
+
+Logout
 
 Output product data
 -----------------------
