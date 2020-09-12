@@ -1,0 +1,88 @@
+Add image to storage
+=======================
+
+In view file create file input form:
+
+```
+  <form action="{{ url('/upateaccount') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                  <input type="text" name="name" class="form-control" value="{{ $user->name }}" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image (only .jpg)</label>
+                    <input type="file" name="image" class="form-control" id="image">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Account</button>
+                <input type="hidden" value="{{ Session::token() }}" name="_token">
+            </form>
+```
+
+In user controller file:
+
+```
+  public function postSaveAccount(Request $request)
+    {
+        $this->validate($request, [
+           'name' => 'required|max:120'
+        ]);
+
+        $user = Auth::user();
+        $old_name = $user->name;
+        $user->name = $request['name'];
+        $user->update();
+
+        $file = $request->file('image');
+        $filename = $request['name'] . '-' . $user->id . '.jpg';
+        $old_filename = $old_name . '-' . $user->id . '.jpg';
+        $update = false;
+
+        if (Storage::disk('local')->has($old_filename)) {
+            $old_file = Storage::disk('local')->get($old_filename); //if file already exists in storage use this and update it
+            Storage::disk('local')->put($filename, $old_file);
+            $update = true;
+        }
+        if ($file) {
+            Storage::disk('local')->put($filename, File::get($file)); //if it's an image file save to storage
+        }
+        if ($update && $old_filename !== $filename) {
+            Storage::delete($old_filename);
+        }
+        return redirect()->route('user.profile');
+    }
+```
+Display image from storage
+===========================
+
+In web.php file:
+
+```
+Route::get('storage/{filename}', function ($filename)
+{
+    $path = storage_path('app/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+})->name('account.image');
+```
+
+In view file:
+
+```
+  @if (Storage::disk('local')->has($user->name . '-' . $user->id . '.jpg'))
+        <section class="row new-post">
+            <div class="col-md-6 col-md-offset-3">
+                <img src="{{ route('account.image', ['filename' => $user->name . '-' . $user->id . '.jpg']) }}" alt="" class="img-responsive">
+            </div>
+        </section>
+    @endif 
+```
