@@ -103,14 +103,7 @@ shop:
 Create the controllers
 ----------------------
 
-Create a controller file - php artisan make:controller ProductController. Use the product model, create a getIndex action to get products
-
-```
-  public function getIndex() {
-        $products = Product::all();
-    return view('shop.index', ['products' => $products]);
-    }
- ```
+1. ProductController
 
 Create the routes
 -----------------
@@ -170,6 +163,14 @@ Middleware authenitcation
 
 Sessions
 ----------
+
+Check if an item is in the session:
+
+```
+  if (!Session::has('cart')) {
+        return redirect()->route('shop.shoppingCart');
+    }
+```
 Shopping cart
 -------------
 
@@ -187,16 +188,16 @@ in cart model check if items exist
 In cart model add items to cart
 
 ```
-     public function add($item, $id) { //add items to cart by id
-        // store a new item in the storedItems array    
+     public function add($item, $id) {
+         
         $storedItem = ['qty' => 0, 'price' => $item->price, 'item' =>$item];
-                if ($this->items) { //if the item already exists
+                if ($this->items) { 
            if (array_key_exists($id, $this->items)) {
                $storedItem = $this->items[$id];
            }
         }
 
-        $storedItem['qty']++; //increase the quantity by one
+        $storedItem['qty']++; 
         $storedItem['price'] = $item->price * $storedItem['qty'];
         $this->items[$id] = $storedItem;
         $this->totalQty++;
@@ -245,22 +246,35 @@ public function increaseByOne($id) {
         }
   ```
 
-Store orders in database table
+Create an order, serialize and store in database table
 ----------------------------------
-Create orders model (with a relation to a user) and table - php artisan make:model Order -m
+In the product controller:
 
 ```
- $order = new Order();
-    $order->cart = serialize($cart);
-    $order->address = $request->input('address');
-    $order->name = $request->input('name');
-    $order->payment_id = $charge->id;
+public function postCheckout(Request $request) {
+    if (!Session::has('cart')) {
+        return redirect()->route('shop.shoppingCart');
+    }
+    $oldCart = Session::get('cart');
+    $cart = new Cart($oldCart); 
 
-    Auth::user()->orders()->save($order);
+    $purchase = new Purchase();
+
+    $purchase->cart = serialize($cart);
+  
+ 
+    $purchase->address = $request->input('address'); 
+    $purchase->name = $request->input('name'); 
+ 
+    Auth::user()->purchases()->save($purchase);
+
+    Session::forget('cart');
+    return redirect()->route('product.index')->with('success', 'Successfully purchased products');
+} 
     
  ```
  
- Retrieve orders from database table
+ Retrieve orders unserialized from database table
  ------------------------------------
  
  ```
