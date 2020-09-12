@@ -115,8 +115,20 @@ Output product data
 -----------------------
 In the view file loop through the products - @foreach($products as $product) @endforeach
 
-User sign in 
--------------
+User sign in and sign up
+-------------------------
+
+display form input errors:
+
+```
+@if(count($errors) > 0)
+<div class="alert alert-danger">
+@foreach($errors->all() as $error)
+<p>{{ $error }}</p>
+@endforeach
+</div>
+@endif
+```
 
 Middleware authenitcation
 -----------------------------
