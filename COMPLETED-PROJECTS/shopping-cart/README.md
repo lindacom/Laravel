@@ -83,6 +83,9 @@ Configure database settings
 Create the models
 -------------------
 1. Cart model - items are grouped in the item array
+2 Product model - uses books table
+3. Purchase model - one to one relationship - a purchase belongs to a user
+4. User model - one to many relationship - a user has many purchases. One to one relationship - a user has one profile
 
 Create the view pages
 ----------------------
