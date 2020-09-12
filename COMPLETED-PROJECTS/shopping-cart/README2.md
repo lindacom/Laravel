@@ -69,6 +69,14 @@ display form input errors:
 Middleware authenitcation
 -----------------------------
 
+display logged in confirmation in the navbar:
+
+```
+ @if (Auth::user())
+<li>You are logged in as: {{ Auth::user()->name }}</li>
+            @endif
+```
+
 Sessions
 ----------
 
