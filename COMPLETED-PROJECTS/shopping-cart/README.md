@@ -91,14 +91,15 @@ Create the view pages
 ----------------------
 
 user:
-1. Profile
+1. Profile - displays user's orders
 2. Signin
 3. signup
 
 shop:
 1. checkout
-2. index
+2. index - main products page
 3. shopping-cart
+
 Create the controllers
 ----------------------
 
@@ -120,7 +121,34 @@ Functionality
 
 Output product data
 -----------------------
-In the view file loop through the products - @foreach($products as $product) @endforeach
+In the view file loop through the productsand display in chunks of three per row
+
+```
+@foreach($products->chunk(3) as $productChunk)
+    <div class="row">
+    @foreach($productChunk as $product)
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="{{ $product->imagePath }}" alt="..." class="img-responsive">
+                <div class="caption">
+                    <h3>{{ $product->title }}</h3>
+                    <p class="description">{{ $product->description }}</p>
+
+                      <div class="clearfix">
+                      <div class="pull-left"><p><strong>Category:{{ $product->category }}</strong></p></div>
+                      </div>
+
+                    <div class="clearfix">
+                        <div class="pull-left price"><p><strong>Price:${{ $product->price }}</strong></p></div>
+                        <a href="{{ route('product.addToCart', ['id' => $product->id]) }}" class="btn btn-success pull-right" role="button">Add to Cart</a>
+ </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    @endforeach
+```
 
 User sign in and sign up
 -------------------------
