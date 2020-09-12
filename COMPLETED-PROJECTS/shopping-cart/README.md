@@ -171,6 +171,22 @@ Check if an item is in the session:
         return redirect()->route('shop.shoppingCart');
     }
 ```
+
+get items from session
+
+```
+$oldCart = Session::has('cart') ? Session::get('cart') : null;
+```
+
+put items into the session
+```
+  Session::put('cart', $cart);
+  ```
+
+Clear the session
+```
+ Session::forget('cart');
+ ```
 Shopping cart
 -------------
 
