@@ -66,6 +66,28 @@ display form input errors:
 @endif
 ```
 
+In the user controller file validate user details, create user and save to database, log user in the application as authenticated:
+
+```
+ public function postSignup(Request $request) {
+        // validate user details
+        $this->validate($request, [
+             'name' => 'required',
+            'email' => 'email|required|unique:users',
+            'password' => 'required|min:4'
+        ]);
+//create new user using input details
+        $user = new User([
+             'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password'))
+        ]);
+        // save user details to the users table - uses the user model
+        $user->save();
+
+        Auth::login($user);
+```
+
 Middleware authenitcation
 -----------------------------
 
