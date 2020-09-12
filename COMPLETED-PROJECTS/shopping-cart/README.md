@@ -104,10 +104,11 @@ Create the controllers
 ----------------------
 
 1. ProductController
+2. userController
 
 Create the routes
 -----------------
-Create a route in the web.php file pointing to the index action of the ProductController
+Create url routes in the routes > web.php file.
 
 Functionality
 =============
