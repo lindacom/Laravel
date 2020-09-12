@@ -93,7 +93,7 @@ Create the view pages
 user:
 1. Profile - displays user's orders
 2. Signin
-3. signup
+3. signup - form input uses the post signup (store method) in the user controller file
 
 shop:
 1. checkout
