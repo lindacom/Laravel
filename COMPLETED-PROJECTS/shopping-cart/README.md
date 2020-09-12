@@ -89,7 +89,7 @@ Create the models
 
 Create the view pages
 ----------------------
-
+1. Profile
 
 
 Create the controllers
@@ -215,3 +215,28 @@ Create orders model (with a relation to a user) and table - php artisan make:mod
  
  Retrieve orders from database table
  ------------------------------------
+ 
+ ```
+  @foreach($purchases as $purchase)
+<h3>Order date: {{ date('d-m-Y', strtotime($purchase->created_at)) }} </h3> {{-- changed date to d-m-y --}}
+<div class="panel panel-default">
+<div class="panel-body">
+ <ul class="list-group"> 
+ 
+ {{-- item is set in the cart model. Item is an associative array.  Using brackets because we are accesing a field in the array --}}
+
+@foreach($purchase->cart->items as $item) 
+
+<li class="list-group-item">
+<span class="badge">${{ $item['price'] }}</span>
+{{$item['item']['title'] }} | {{ $item['qty'] }} Unit
+</li>
+@endforeach
+</ul> 
+</div>
+<div class="panel-footer">
+<strong>Total Price: ${{ $purchase->cart->totalPrice }}</strong>
+</div>
+</div> 
+@endforeach
+```
