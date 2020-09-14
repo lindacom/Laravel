@@ -101,7 +101,7 @@ user:
 shop:
 1. checkout
 2. index - main products page
-3. shopping-cart
+3. shoppingCart
 4. header
 
 Create the controllers
