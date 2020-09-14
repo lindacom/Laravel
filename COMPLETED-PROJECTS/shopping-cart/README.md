@@ -55,6 +55,7 @@ updated_at	date
 category_product table (id, product_id, category_id, created_at, updated_at)
 
 N.b. the whole of the cart will be entred into the cart field of the table as a long string so the type is therefore set to text.
+
 Configure database settings
 ----------------------------
 1. In the .env file enter database connection credentials.
@@ -85,7 +86,7 @@ Configure database settings
 Create the models
 -------------------
 1. Cart model - items are grouped in the item array
-2 Product model - uses books table
+2. Product model - uses books table
 3. Purchase model - one to one relationship - a purchase belongs to a user
 4. User model - one to many relationship - a user has many purchases. One to one relationship - a user has one profile
 
