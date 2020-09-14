@@ -114,21 +114,22 @@ Create the routes
 -----------------
 Create url routes in the routes > web.php file.
 
-/shop/index
-/shoppingCart
-/signup
-/signin
-/profile
-/logout
+1. /shop/index
+2. /shoppingCart
+3. /signup
+4. /signin
+5. /profile
+6. /logout
 
 used by buttons:
 
-/add-to-cart/{id}
-/increase/{id}
-/reduce/{id}
-/remove/{id}
-/checkout
+1. /add-to-cart/{id}
+2. /increase/{id}
+3. /reduce/{id}
+4. /remove/{id}
+5. /checkout
 
 Used by forms:
-/ordered
-/upateaccount
+
+1. /ordered
+2. /upateaccount
