@@ -52,6 +52,8 @@ address	varchar(250)
 created_at	date
 updated_at	date
 
+category_product table (id, product_id, category_id, created_at, updated_at)
+
 N.b. the whole of the cart will be entred into the cart field of the table as a long string so the type is therefore set to text.
 Configure database settings
 ----------------------------
