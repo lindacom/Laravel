@@ -1,0 +1,49 @@
+Conditional visibility
+=======================
+Show element based on whether another eement is in view (e.g. if you have a reply button and a reply modal on a page, hide the modal if the button in screen view)
+
+1 Create a view file and insert a component tag
+
+```
+<conditional-element when-hidden="#js-forum-reply-button">
+
+<div class="participate-button>
+</div>
+```
+
+N.b. when element is hidden display the div
+
+2. In the component file create a component called conditional-element and listen for when element becomes hidden (using the inviewport package)
+(ie. when user scrolls page check display method checks if other element is in view)
+
+<template>
+<div v-show="isVisible">
+<slot></slot>
+</div>
+</template>
+
+<script>
+import inviewport from 'in-viewport';
+
+export default {
+props: ['whenHidden']
+
+data() {
+return {
+isVisible: false
+};
+},
+
+mounted() {
+window.addEventListener('scroll', this.checkDisplay,{
+passive:true}
+);
+},
+
+methods: {
+checkDisplay() {
+this.isVisible = ! inViewport(documnt.querySelector(this.whenHidden)};
+}
+}
+};
+</script>
