@@ -143,6 +143,17 @@ Data attribute
  </script>
  ```
  
+ Vue transition
+ ---------------
+ 
+ To use transition in the component file template div wrap your temlate code in transition div
+ 
+ <transition name="fade"> </transition>
+ 
+ N.b. you can configure the effect in style tags e.g. time 
+ 
+ See vue documentation for other options
+ 
  
  
  
