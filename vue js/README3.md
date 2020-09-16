@@ -62,3 +62,9 @@ Fix an element to the top of the browser.
  N.b. the event handler is triggered many times using this ethod so using lodash throttle function would resolve this only triggers by the amount of time set
  e.g. every two seconds.
  
+ Tooltip
+ ---------
+ There are three ways to do this - data attribute, vue directive or vue component
+ 
+ 
+ 
