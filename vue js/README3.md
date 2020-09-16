@@ -64,7 +64,87 @@ Fix an element to the top of the browser.
  
  Tooltip
  ---------
- There are three ways to do this - data attribute, vue directive or vue component
+ There are three ways to do this - data attribute, vue directive or vue component.
+ 
+ You can use tooltip.js package hich is built on top of popper - 
+ 
+ npm install tooltip.js
+ import into coponent file
+
+Data attribute
+---------------
+ In the view file create an element ith data tooltip element
+ <span data-tooltip="I am a tooltip"></span>
+ 
+ In the component file find element with data-tooltip attribute
+ 
+ ```
+ mounted() {
+ document.querySelectorAll('[data-tooltip]').forEach(elem => {
+ new Tooltip (elem, {
+ placementelem.dataset.top
+ title:elem.dataset.tooltip
+ });
+ }
+ });
+ ```
+ Vue directive
+ -------------
+ In the view file create element 
+ ```
+ <span v-tooltip.top="tooltip"></span>
+ ```
+ Register a directive called tooltip
+ ```
+ vue.directive('tooltip', {
+ bind(elem, bindings) {
+ new Tooltip (elem, {
+ placement:bindings.art,
+ title: bindings.value
+ })
+ }
+ });
+ ```
+ Component
+ -----------
+ Useful if the tooltip is to contin large text. In the view file create an element
+ ```
+ <span data-tooltip-name="prodcts-tooltip"></span>
+ 
+ <tooltip name="products-tooltip">
+ <h1>Our products </h1>
+ <p>my text</p>
+ </tooltip>
+ ```
+ In the component file look for data attribute equal to element.
+ 
+ In app.js file iport tooltip component. Register tooltip component.
+ In template add slots for tooltip text
+ 
+ In script import tooltip from tooltip.js
+ 
+ ```
+ <script>
+ props: {
+ name: {
+ },
+ },
+ 
+ mounted() {
+ document.querySelectorAll('[data-tooltip-name=${this.name}]).forEach(elem => {
+ new Tooltip(elem, {
+ placement:  this.placement, 
+ title: this.$refs.body.innerHtml,
+ html:true
+ });
+ });
+ }
+ };
+ </script>
+ ```
+ 
+ 
+ 
  
  
  
