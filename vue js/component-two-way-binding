@@ -1,0 +1,10 @@
+Two way data binding
+====================
+
+Parent communicates to child through props
+
+N.b. data property refers to the props property. Props are entered in element tag name= so that it can create a nw state
+
+child communicates to parent through emitted events e.g. click=
+
+(listened to in methods and can then make changes)
