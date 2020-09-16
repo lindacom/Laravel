@@ -13,3 +13,17 @@ and place the dll file in the php > ext directory) - NTS
 5. In the redis service folder run the redis-server executable file. Ensure the server is running on the correct port 6379. (You will see the message that 
 the server is now read to accept connections)
 In visual studio code run php artisan serve and access the webpage that is using redis.
+
+Predis on hosted site
+------------------------
+
+upload the predis vendor file to the laravel > vendor directory
+
+Redis Cli
+---------
+
+Command line commands:
+
+zincrby - increment by, what, score (amount), what incrementing
+zrange - fetch what, range
+zrevrange  sorting
