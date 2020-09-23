@@ -1,0 +1,21 @@
+How to add a success message 
+=============================
+
+To display a success message after a purchase
+
+In the controller action add:
+
+   Auth::user()->purchases()->save($purchase);
+
+    Session::forget('cart');
+    return redirect()->route('product.index')->with('success', 'Successfully purchased products');
+
+In the view file add
+
+<div class="container"
+@if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+@endif
+</div>
