@@ -1,0 +1,4 @@
+url with an id
+--------------
+
+href="{{ url('/posts/'.$post->id.'/delete') }}"
